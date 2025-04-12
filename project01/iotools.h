@@ -14,7 +14,7 @@ void CinQualification();
 //FailHint (2 аргумент) - текст в случае ошибочного ввода
 //StartRange/EndRange (3 и 4 аргументы) - начало и конец для подходящих значений. Берётся включительно
 //linesToClear (5 аргумент) - сколько строчек очищать в консоли в случае ошибочного ввода и повторного запроса
-int iotools_Int_InputInRange(std::string UserHint, std::string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange = false);
+int iotools_Int_InputInOutRange(std::string UserHint, std::string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange = false);
 
 
 // Функция автоматизации обработки ввода пользователя.Возвращает введённое значение с клавиатуры(int)
