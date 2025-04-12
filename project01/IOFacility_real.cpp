@@ -14,7 +14,7 @@ int InputValidIntRange(int A, int B)
 			flag = 0;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cout << "Íåêîððåêòíûé ââîä.";
+			cout << "ÃÃ¥ÃªÃ®Ã°Ã°Ã¥ÃªÃ²Ã­Ã»Ã© Ã¢Ã¢Ã®Ã¤.";
 			sleep(1);
 			eraseline(1);
 			sleep(0.2);
@@ -24,7 +24,7 @@ int InputValidIntRange(int A, int B)
 			flag = 0;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
-			cout << "Ââåäèòå ÷èñëî, âõîäÿùåå â äèàïàçîí [" << A << ", " << B << "]";
+			cout << "Ã‚Ã¢Ã¥Ã¤Ã¨Ã²Ã¥ Ã·Ã¨Ã±Ã«Ã®, Ã¢ÃµÃ®Ã¤Ã¿Ã¹Ã¥Ã¥ Ã¢ Ã¤Ã¨Ã Ã¯Ã Ã§Ã®Ã­ [" << A << ", " << B << "]";
 			sleep(1);
 			eraseline(1);
 			sleep(0.2);
@@ -48,7 +48,7 @@ void eraseline(int n)
 
 	for (int i = 0; i < n; i++)
 	{
-		cout << "\033[1A"; // ïîäíèìàåò êóðñîð íà ñòðîêó ââåðõ
-		cout << "\33[2K\r"; // óäàëÿåò ñòðîêó íà êîòîðîé ñòîèò êóðñîð
+		cout << "\033[1A"; // Ã¯Ã®Ã¤Ã­Ã¨Ã¬Ã Ã¥Ã² ÃªÃ³Ã°Ã±Ã®Ã° Ã­Ã  Ã±Ã²Ã°Ã®ÃªÃ³ Ã¢Ã¢Ã¥Ã°Ãµ
+		cout << "\33[2K\r"; // Ã³Ã¤Ã Ã«Ã¿Ã¥Ã² Ã±Ã²Ã°Ã®ÃªÃ³ Ã­Ã  ÃªÃ®Ã²Ã®Ã°Ã®Ã© Ã±Ã²Ã®Ã¨Ã² ÃªÃ³Ã°Ã±Ã®Ã°
 	}
 }
