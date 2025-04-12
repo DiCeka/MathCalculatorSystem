@@ -1,14 +1,10 @@
 #pragma once
+#include <string>
 
 //Функция обработки ввода на несоответствие типов данных
 //Если пользователь введёт, допустим, в int строку, программа обычно сломается и начнёт вести себя хаотично
 //Эта функция обработает этот случай и очистит поток ввода, чтобы программа не реагировала на ошибочный ввод
-void CinQualification() {
-    if (std::cin.fail()) {//если cin не удался
-        std::cin.clear(); //очистим ввод
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //проигнорируем все введённое 
-    }
-}
+void CinQualification();
 
 //Функция автоматизации обработки ввода пользователя. Возвращает введённое значение с клавиатуры (int)
 //Выводит сообщение для пользователя, обрабатывает ошибочный ввод в случае, если вводится число вне заданного диапазона
@@ -18,7 +14,7 @@ void CinQualification() {
 //FailHint (2 аргумент) - текст в случае ошибочного ввода
 //StartRange/EndRange (3 и 4 аргументы) - начало и конец для подходящих значений. Берётся включительно
 //linesToClear (5 аргумент) - сколько строчек очищать в консоли в случае ошибочного ввода и повторного запроса
-int iotools_Int_InputInRange(string UserHint, string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange = false);
+int iotools_Int_InputInRange(std::string UserHint, std::string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange = false);
 
 
 // Функция автоматизации обработки ввода пользователя.Возвращает введённое значение с клавиатуры(int)
@@ -30,7 +26,7 @@ int iotools_Int_InputInRange(string UserHint, string FailHint, int startRange, i
 //CompareValue (3 аргумент) - число, относительно которого будем сравнивать ввод
 //linesToClear (4 аргумент) - сколько строчек очищать в консоли в случае ошибочного ввода и повторного запроса
 //flipQualification (5 аргумент) - по умолчанию равен false (ввод должен быть больше заданного числа). Если равен true, то ввод должен быть меньше заданного числа
-int iotools_Int_InputMoreLessThanValue(string UserHint, string FailHint, int CompareValue, int linesToClear, bool flipQualitification = false);
+int iotools_Int_InputMoreLessThanValue(std::string UserHint, std::string FailHint, int CompareValue, int linesToClear, bool flipQualitification = false);
 
 // функция во всём аналогична стандартной функции Sleep(), но использование последней ломает функцию
 // проверки ввода InputValidIntRange(), так что для задержки вывода юзаем эту.
