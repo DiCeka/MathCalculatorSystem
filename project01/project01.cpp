@@ -18,6 +18,6 @@ int main()
     case 1: MatrCalculator(); break;
     // case 2: CombinationCalculator(); break;
     }
-
+    
     return 0;
 }
