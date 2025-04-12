@@ -23,7 +23,7 @@ void CinQualification() {
 //StartRange/EndRange (3 и 4 аргументы) - начало и конец для подходящих значений. Берётся включительно
 //linesToClear (5 аргумент) - сколько строчек очищать в консоли в случае ошибочного ввода и повторного запроса
 //flipRange (6 аргумент) - по умолчанию равен false (ввод будет запрашивать В диапазоне). Если равен true, ввод будет проверяться на нахождение ВНЕ диапазона
-int iotools_Int_InputInOutRange(string UserHint, string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange) {
+int iotools_Int_InputInOutRange(std::string UserHint, std::string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange) {
     int container; //записываем сюда все введеное пользователем
     if (!flipRange) { //проверка на ввод В диапазоне
         do { //обрабатываем процесс ввода
@@ -63,7 +63,7 @@ int iotools_Int_InputInOutRange(string UserHint, string FailHint, int startRange
 //CompareValue (3 аргумент) - число, относительно которого будем сравнивать ввод
 //linesToClear (4 аргумент) - сколько строчек очищать в консоли в случае ошибочного ввода и повторного запроса
 //flipQualification (5 аргумент) - по умолчанию равен false (ввод должен быть больше заданного числа). Если равен true, то ввод должен быть меньше заданного числа
-int iotools_Int_InputMoreLessThanValue(string UserHint, string FailHint, int CompareValue, int linesToClear, bool flipQualitification = false) {
+int iotools_Int_InputMoreLessThanValue(std::string UserHint, std::string FailHint, int CompareValue, int linesToClear, bool flipQualitification) {
     int container; //записываем сюда все введеное пользователем
     if (!flipQualitification) {//ОБРАБОТКА flipQialification = false, то есть чтоб ввод был БОЛЬШЕ заданного числа
         do { //обрабатываем процесс ввода
@@ -108,7 +108,7 @@ void eraseline(int n)
 
 	for (int i = 0; i < n; i++)
 	{
-		cout << "\033[1A"; // ïîäíèìàåò êóðñîð íà ñòðîêó ââåðõ
-		cout << "\33[2K\r"; // óäàëÿåò ñòðîêó íà êîòîðîé ñòîèò êóðñîð
+		cout << "\033[1A"; 
+		cout << "\33[2K\r"; 
 	}
 }
