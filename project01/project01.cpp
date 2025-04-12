@@ -10,7 +10,7 @@ int main()
     setlocale(LC_ALL, "ru");
     // переменная, предназначенная для выбора пользователем нужного калькулятора
     int selecter;
-
+    selecter = 0;
     cout << "Какой калькулятор хотите использовать?\n\t 1 - Матричный калькулятор\n\t 2 - Калькулятор формул комбинаторики\n";
     selecter = InputValidIntRange(1, 2);
 
@@ -20,5 +20,5 @@ int main()
     // case 2: CombinationCalculator(); break;
     }
     
-    return 0;
+    return 0; 
 }
