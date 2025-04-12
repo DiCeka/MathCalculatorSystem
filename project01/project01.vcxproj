@@ -127,12 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="iotools.cpp" />
+    <ClCompile Include="IOFacility_real.cpp" />
     <ClCompile Include="MatrCalculator.cpp" />
     <ClCompile Include="project01.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="iotools.h" />
+    <ClInclude Include="IOFacility.h" />
     <ClInclude Include="MatrCalculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

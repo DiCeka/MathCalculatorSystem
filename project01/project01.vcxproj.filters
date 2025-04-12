@@ -24,7 +24,7 @@
     <ClCompile Include="project01.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="iotools.cpp">
+    <ClCompile Include="IOFacility_real.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
     <ClCompile Include="MatrCalculator.cpp">
@@ -32,7 +32,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="iotools.h">
+    <ClInclude Include="IOFacility.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MatrCalculator.h">
