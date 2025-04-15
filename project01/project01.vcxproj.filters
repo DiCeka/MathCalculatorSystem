@@ -19,24 +19,54 @@
     <Filter Include="Исходные файлы\Папка для пользователей\Матричный калькулятор">
       <UniqueIdentifier>{38d17469-fe17-4dc6-82be-bbe5052665ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Папка для пользователей\Калькулятор форм комбинаторики">
+      <UniqueIdentifier>{a33c6246-a184-4d84-a0b9-98091b023e7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Папка для пользователей\Калькулятор многочленов">
+      <UniqueIdentifier>{078bac69-2de5-4fb2-b4ae-020cdac09e0d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Папка для пользователей\Теория вероятности и мат. статистика">
+      <UniqueIdentifier>{733d4c14-bef2-4847-86ad-64fa7e760355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей">
+      <UniqueIdentifier>{8127af5c-5d78-405b-b4fd-4ffa1c48668b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Папка для пользователей\Работа с функциями">
+      <UniqueIdentifier>{9b114e8c-2cb2-457a-9510-7994ad1d0b55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="project01.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="IOFacility_real.cpp">
-      <Filter>Исходные файлы</Filter>
-    </ClCompile>
     <ClCompile Include="MatrCalculator.cpp">
       <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
     </ClCompile>
+    <ClCompile Include="iotools.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="CombinationCalculator.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор форм комбинаторики</Filter>
+    </ClCompile>
+    <ClCompile Include="PolynimialCalculator.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор многочленов</Filter>
+    </ClCompile>
+    <ClCompile Include="ProbabilityAndStatisticsCalculator.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Теория вероятности и мат. статистика</Filter>
+    </ClCompile>
+    <ClCompile Include="FractionCalculator.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionsCalculator.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Работа с функциями</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IOFacility.h">
+    <ClInclude Include="iotools.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="MatrCalculator.h">
-      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
+    <ClInclude Include="Calculators.h">
+      <Filter>Исходные файлы\Папка для пользователей</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

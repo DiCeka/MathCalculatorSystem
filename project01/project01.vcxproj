@@ -127,13 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CombinationCalculator.cpp" />
+    <ClCompile Include="FractionCalculator.cpp" />
+    <ClCompile Include="FunctionsCalculator.cpp" />
     <ClCompile Include="iotools.cpp" />
     <ClCompile Include="MatrCalculator.cpp" />
+    <ClCompile Include="PolynimialCalculator.cpp" />
+    <ClCompile Include="ProbabilityAndStatisticsCalculator.cpp" />
     <ClCompile Include="project01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Calculators.h" />
     <ClInclude Include="iotools.h" />
-    <ClInclude Include="MatrCalculator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
