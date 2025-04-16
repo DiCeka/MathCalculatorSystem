@@ -1,7 +1,7 @@
 #pragma once
 #include "Calculators.h"
 
-void StatisticsCalculator()
+void StatisticsCalculator(bool& isexecuting)
 {
 
 }
