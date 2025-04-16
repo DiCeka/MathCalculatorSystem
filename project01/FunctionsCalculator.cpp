@@ -13,3 +13,4 @@ void FunctionsCalculator(bool &isexecuting)
 	if (a == 1) isexecuting = false;
 
 }
+
