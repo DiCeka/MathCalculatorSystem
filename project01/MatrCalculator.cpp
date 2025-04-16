@@ -4,7 +4,7 @@
 #include "iotools.h"
 using namespace std;
 
-void MatrCalculator()
+void MatrCalculator(bool &isexecuting)
 {
 
 }

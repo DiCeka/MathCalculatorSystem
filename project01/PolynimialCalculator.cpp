@@ -1,7 +1,7 @@
 #pragma once
 #include "Calculators.h"
 
-void PolynimialCalculator()
+void PolynimialCalculator(bool& isexecuting)
 {
 
 }

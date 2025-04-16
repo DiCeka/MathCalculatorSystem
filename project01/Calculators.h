@@ -1,13 +1,13 @@
 #pragma once
 
-void MatrCalculator();
+void MatrCalculator(bool& isexecuting);
 
-void CombinationCalculator();
+void CombinationCalculator(bool& isexecuting);
 
-void PolynimialCalculator();
+void PolynimialCalculator(bool& isexecuting);
 
-void StatisticsCalculator();
+void StatisticsCalculator(bool& isexecuting);
 
-void FractionCalculator();
+void FractionCalculator(bool& isexecuting);
 
-void FunctionsCalculator();
+void FunctionsCalculator(bool& isexecuting);

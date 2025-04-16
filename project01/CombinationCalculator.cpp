@@ -1,7 +1,7 @@
 #pragma once
 #include "Calculators.h"
 
-void CombinationCalculator()
+void CombinationCalculator(bool& isexecuting)
 {
 
 }
