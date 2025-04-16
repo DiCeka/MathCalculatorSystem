@@ -4,6 +4,14 @@
 #include <string>
 using namespace std;
 
+//ОБРАБОТКА ЗАПРОСА НА ВЫХОД В МЕНЮ
+void CycleRequest(bool& isexecuting) {
+
+    cout << "Выйти в меню?\n1-ДА\n2-НЕТ\n";
+    int selection = iotools_Int_InputInOutRange("", "Такого выбора нет!", 1, 2, 3);
+    if (selection == true) isexecuting = false;
+}
+
 void CinQualification() {
     if (std::cin.fail()) {//если cin не удался
         std::cin.clear(); //очистим ввод

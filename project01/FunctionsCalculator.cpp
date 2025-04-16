@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include "Calculators.h"
 #include <iostream>
 #include "iotools.h"
@@ -6,11 +6,13 @@
 using namespace std;
 void FunctionsCalculator(bool &isexecuting)
 {
-	system("cls");
-	cout << "������ � ���������\n";
+	system("cls");//чистим консоль при каждой итерации калькулятора (для красоты и стиля)
 
-	int a; cin >> a;
-	if (a == 1) isexecuting = false;
+	//главный код калькулятора
+
+
+//запрос выйти в меню или продолжить этот калькулятор
+	CycleRequest(isexecuting);
 
 }
 
