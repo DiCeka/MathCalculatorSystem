@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 #include <windows.h>
-#include <clocale>
+
 using namespace std;
 
 bool ISEXECUTING = false; //выключатель цикличности каждого калькулятора
