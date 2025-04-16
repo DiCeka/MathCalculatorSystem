@@ -11,10 +11,10 @@ int main()
 {
          
     
-    SetConsoleOutputCP(CP_UTF8); // вывод в UTF-8
+  
     setlocale(LC_ALL, "Russian");
 
-    std::wcout.imbue(std::locale("")); // для wcout
+   
 
     while (true) { //программа выполняется бесконечно, пока не закроют консоль
         system("cls");
