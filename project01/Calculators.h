@@ -11,3 +11,4 @@ void StatisticsCalculator(bool& isexecuting);
 void FractionCalculator(bool& isexecuting);
 
 void FunctionsCalculator(bool& isexecuting);
+
