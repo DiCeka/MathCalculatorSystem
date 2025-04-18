@@ -1,4 +1,4 @@
-#include "Polynomial.h"
+ï»¿#include "Polynomial.h"
 using namespace std;
 
 double* InputPolynomial(int degree) {
@@ -8,10 +8,10 @@ double* InputPolynomial(int degree) {
 	int number;
 	number = degree + 1;
 
-	cout << "Ââåäèòå " << number << " êîýôôèöèåíòà: " << endl;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << number << " ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚Ð°: " << endl;
 
 	for (int i = 0; i <= degree; ++i) {
-		cout << "Ââåäèòå " << i+1 << "-é êîýôôèöèåíò: "; cin >> a[i];
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ " << i+1 << "-Ð¹ ÐºÐ¾ÑÑ„Ñ„Ð¸Ñ†Ð¸ÐµÐ½Ñ‚: "; cin >> a[i];
 	}
 
 	return a;
