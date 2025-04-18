@@ -8,7 +8,7 @@
 using namespace std;
 const int vars_amount = 5;
 const float APROXIMATY = 0.00001;
-const int MAX_ROOTS = 100;
+const int MAX_ROOTS = 1000;
 const float STEP = 0.01;
 
 const int SCREEN_WIDTH = 800;
