@@ -22,7 +22,9 @@ int main()
 "ERROR: Такого калькулятора нет!", 1, 6, 10);
         ISEXECUTING = true; //включаем цикличность выбранного калькулятора
         system("cls");
-        while (ISEXECUTING) { //пока цикличность активна, будем запускать калькуляторы
+        while (ISEXECUTING) { 
+            system("cls");
+            //пока цикличность активна, будем запускать калькуляторы
             switch (selecter)
             {
             case 1: MatrCalculator(ISEXECUTING); break;

@@ -33,7 +33,9 @@ void PolynimialCalculator( bool &isExecuting)
 		
 		a = InputPolynomial(a_degree);
 		b = InputPolynomial(b_degree);
-		//c = AdditionOfPolynomials(a, b);
+		c = AdditionOfPolynomials(a, b);	
+		OutputPolynomial(c, max(a_degree,b_degree));
+
 	}; break;
 	//case 2: SubtractionOfPolynomials(); break;
 	//case 3: MultiplyingPolynomials(); break;
@@ -42,5 +44,6 @@ void PolynimialCalculator( bool &isExecuting)
 	//case 6: ColumnDivisionOfPolynomials(); break;
 	}
 
+	cout << endl;
 	CycleRequest(isExecuting);
 }
