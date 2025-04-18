@@ -4,12 +4,11 @@
 #include <string>
 using namespace std;
 
-//ОБРАБОТКА ЗАПРОСА НА ВЫХОД В МЕНЮ
 void CycleRequest(bool& isexecuting) {
 
     cout << "Выйти в меню?\n1-ДА\n2-НЕТ\n";
     int selection = iotools_Int_InputInOutRange("", "Такого выбора нет!", 1, 2, 3);
-    if (selection == true) isexecuting = false;
+    if (selection == true) { isexecuting = false; system("cls"); }
 }
 
 void CinQualification() {
