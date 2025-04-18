@@ -41,4 +41,6 @@ void PolynimialCalculator( bool &isExecuting)
 	//case 5: DerivativeOfAPolynomial(); break;
 	//case 6: ColumnDivisionOfPolynomials(); break;
 	}
+
+	CycleRequest(isExecuting);
 }
