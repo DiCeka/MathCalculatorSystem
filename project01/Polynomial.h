@@ -6,14 +6,16 @@
 
 double* InputPolynomial(int degree);
 
-void AdditionOfPolynomials();
+void OutputPolynomial(const double* a, int degree);
 
-void SubtractionOfPolynomials();
+double* AdditionOfPolynomials(double* a, double* b);
 
-void MultiplyingPolynomials();
-
-void MultiplyingApolynomialByANumber();
-
-void DerivativeOfAPolynomial();
-
-void ColumnDivisionOfPolynomials();
+//void SubtractionOfPolynomials();
+//
+//void MultiplyingPolynomials();
+//
+//void MultiplyingApolynomialByANumber();
+//
+//void DerivativeOfAPolynomial();
+//
+//void ColumnDivisionOfPolynomials();
