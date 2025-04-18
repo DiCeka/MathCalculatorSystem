@@ -128,19 +128,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrayTools.cpp" />
     <ClCompile Include="CombinationCalculator.cpp" />
     <ClCompile Include="FractionCalculator.cpp" />
     <ClCompile Include="FunctionsCalculator.cpp" />
     <ClCompile Include="iotools.cpp" />
     <ClCompile Include="MatrCalculator.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Polynomial.cpp" />
     <ClCompile Include="PolynimialCalculator.cpp" />
     <ClCompile Include="ProbabilityAndStatisticsCalculator.cpp" />
     <ClCompile Include="project01.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArrayTools.h" />
     <ClInclude Include="Calculators.h" />
     <ClInclude Include="iotools.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Polynomial.h" />
   </ItemGroup>
   <ItemGroup>

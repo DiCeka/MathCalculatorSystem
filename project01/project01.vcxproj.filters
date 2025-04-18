@@ -61,18 +61,33 @@
       <Filter>Исходные файлы\Папка для пользователей\Работа с функциями</Filter>
     </ClCompile>
     <ClCompile Include="Polynomial.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор многочленов</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrayTools.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="iotools.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="Calculators.h">
       <Filter>Исходные файлы\Папка для пользователей</Filter>
     </ClInclude>
-    <ClInclude Include="Polynomial.h">
-      <Filter>Файлы заголовков</Filter>
+    <ClInclude Include="iotools.h">
+      <Filter>Исходные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="Polynomial.h">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор многочленов</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayTools.h">
+      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

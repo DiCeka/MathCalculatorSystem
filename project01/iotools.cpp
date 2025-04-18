@@ -18,6 +18,48 @@ void CinQualification() {
     }
 }
 
+double iotools_Double_Input(string UserHint, string FailHint, int linesToClear)
+{
+    double container;
+    bool isinvalid;
+    do
+    {
+        isinvalid = false;
+        cout << UserHint;
+        cin >> container;
+        if (cin.fail()) {
+            isinvalid = true;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << FailHint << "\n";
+            system("pause");
+            eraseline(linesToClear);
+        }
+    } while (isinvalid);
+    return container;
+}
+
+int iotools_Int_Input(string UserHint, string FailHint, int linesToClear)
+{
+    int container;
+    bool isinvalid;
+    do
+    {
+        isinvalid = false;
+        cout << UserHint;
+        cin >> container;
+        if (cin.fail()) {
+            isinvalid = true;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << FailHint << "\n";
+            system("pause");
+            eraseline(linesToClear);
+        }
+    } while (isinvalid);
+    return container;
+}
+
 int iotools_Int_InputInOutRange(std::string UserHint, std::string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange) {
     int container; //записываем сюда все введеное пользователем
     if (!flipRange) { //проверка на ввод В диапазоне
