@@ -182,7 +182,7 @@ void PROCEDURE_RootEvauluation() {
 void FunctionsCalculator(bool& isexecuting)
 {
 	//ВЫБОР ФУНКЦИИ
-	string polynomial_title = "1) Полином степени N (a, N - пользовательские значения)\na0 + a1*x + a2*x^2 + .... + aN*x^N;\n\n";
+	string polynomial_title = "1) (В РАЗРАБОТКЕ!!!) Полином степени N (a, N - пользовательские значения)\na0 + a1*x + a2*x^2 + .... + aN*x^N;\n\n";
 	string power_title = "2) Степенная функция (a, b, c - пользовательские значения)\na * x^b + c;\n\n";
 	string exponental_title = "3) Показательная функция (a, b, c, d - пользовательские значения)\na * b^(c*x)+d;\n\n";
 	string logariphmic_title = "4) Логарифмическая функция (a, b, c - пользовательские значения)\na * Ln(b*x) + c\n\n";
