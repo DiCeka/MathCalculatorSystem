@@ -60,6 +60,9 @@
     <ClCompile Include="FunctionsCalculator.cpp">
       <Filter>Исходные файлы\Папка для пользователей\Работа с функциями</Filter>
     </ClCompile>
+    <ClCompile Include="Polynomial.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="iotools.h">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="Calculators.h">
       <Filter>Исходные файлы\Папка для пользователей</Filter>
+    </ClInclude>
+    <ClInclude Include="Polynomial.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

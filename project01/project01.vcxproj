@@ -133,6 +133,7 @@
     <ClCompile Include="FunctionsCalculator.cpp" />
     <ClCompile Include="iotools.cpp" />
     <ClCompile Include="MatrCalculator.cpp" />
+    <ClCompile Include="Polynomial.cpp" />
     <ClCompile Include="PolynimialCalculator.cpp" />
     <ClCompile Include="ProbabilityAndStatisticsCalculator.cpp" />
     <ClCompile Include="project01.cpp" />
@@ -140,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Calculators.h" />
     <ClInclude Include="iotools.h" />
+    <ClInclude Include="Polynomial.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
