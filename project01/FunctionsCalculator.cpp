@@ -9,9 +9,9 @@ void FunctionsCalculator(bool& isexecuting)
 {
 	//ВЫБОР ФУНКЦИИ
 	string polynomial_title = "1) Полином степени N (a, N - пользовательские значения)\na0 + a1*x + a2*x^2 + .... + aN*x^N;\n\n";
-	string power_title = "2) Степенная (a, b, c - пользовательские значения)\na * b^(c*x)+d;\n\n";
-	string exponental_title = "3) Показательная (a, b, c, d - пользовательские значения)\na * b^(c*x)+d;\n\n";
-	string logariphmic_title = "4) Логарифмическая (a, b, c - пользовательские значения)\na * Ln(b*x) + c\n\n";
+	string power_title = "2) Степенная функция (a, b, c - пользовательские значения)\na * b^(c*x)+d;\n\n";
+	string exponental_title = "3) Показательная функция (a, b, c, d - пользовательские значения)\na * b^(c*x)+d;\n\n";
+	string logariphmic_title = "4) Логарифмическая функция (a, b, c - пользовательские значения)\na * Ln(b*x) + c\n\n";
 	string sin_title = "5) Синусоида (a, b, c, d - пользовательские значения)\na*sin(b*x + c) + d;\n\n";
 	string cos_title = "6) Косинусоида (a, b, c, d - пользовательские значения)\na*cos(b*x + c) + d;\n\n\n\n";
 
