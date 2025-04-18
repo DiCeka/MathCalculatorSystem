@@ -216,10 +216,10 @@ void FunctionsCalculator(bool& isexecuting)
 	system("pause");
 
 	//ВЫБОР ОПЕРАЦИИ
-	string defined_integral_operation_title = "1) Вычислить определённый интеграл на отрезке [A; B] (пользовательский ввод);\n\n";
+	string defined_integral_operation_title = "1)(В РАЗРАБОТКЕ!!!) Вычислить определённый интеграл на отрезке [A; B] (пользовательский ввод);\n\n";
 	string graph_generation_operation_title = "2) Построение и визуализация графика;\n\n";
 	string root_determination_operation_title = "3) Поиск корня (y = 0) на отрезке [A; B] (пользовательский ввод);\n\n";
-	string extremes_determination_operation_title = "4) Поиск экстремумов на отрезке [A; B] (пользовательский ввод);\n\n";
+	string extremes_determination_operation_title = "4)(В РАЗРАБОТКЕ!!!) Поиск экстремумов на отрезке [A; B] (пользовательский ввод);\n\n";
 
 	string OPERATIONS[4] = { defined_integral_operation_title, graph_generation_operation_title, 
 		root_determination_operation_title, extremes_determination_operation_title};
