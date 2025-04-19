@@ -4,13 +4,11 @@
 #include "iotools.h"
 #include <iostream>
 using namespace std;
-
 struct sizeofMatrix
 {
 	int cols;
 	int rows;
 };
-
 sizeofMatrix MatrixInputSize()
 {
     cout << "Введите размеры матрицы: ";

@@ -120,7 +120,6 @@ int iotools_Int_InputMoreLessThanValue(std::string UserHint, std::string FailHin
     }
     return container; //вернём итоговое введённое значение
 }
-
 void sleep(float seconds) {
 	clock_t startClock = clock();
 	float secondsAhead = seconds * CLOCKS_PER_SEC;

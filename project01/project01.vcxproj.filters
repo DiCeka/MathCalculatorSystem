@@ -69,6 +69,9 @@
     <ClCompile Include="ArrayTools.cpp">
       <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
     </ClCompile>
+    <ClCompile Include="Fraction.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calculators.h">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="ArrayTools.h">
       <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
+    </ClInclude>
+    <ClInclude Include="Fraction.h">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

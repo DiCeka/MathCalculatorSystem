@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="ArrayTools.cpp" />
     <ClCompile Include="CombinationCalculator.cpp" />
+    <ClCompile Include="Fraction.cpp" />
     <ClCompile Include="FractionCalculator.cpp" />
     <ClCompile Include="FunctionsCalculator.cpp" />
     <ClCompile Include="iotools.cpp" />
@@ -143,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="ArrayTools.h" />
     <ClInclude Include="Calculators.h" />
+    <ClInclude Include="Fraction.h" />
     <ClInclude Include="iotools.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Polynomial.h" />
