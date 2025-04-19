@@ -20,8 +20,10 @@ double* InputPolynomial(int degree) {
 
 void OutputPolynomial(const double* a, int degree) {
     bool flag = true;
+    bool flag0 = true;
     for (int i = degree; i >= 0; --i) {
         if (a[i] != 0) {
+            flag0 = false;
             if (!flag) {
                 cout << " + ";
             }
@@ -29,6 +31,8 @@ void OutputPolynomial(const double* a, int degree) {
             flag = false;
         }
     }
+    if (flag0)
+        cout << "0";
 }
 
 double* AdditionOfPolynomials(double* a, double* b) {
@@ -45,8 +49,55 @@ double* AdditionOfPolynomials(double* a, double* b) {
     for (int i = 0; i < max_degree; ++i) {
         double coeff1 = (i < sizeof(a)) ? a[i] : 0;
         double coeff2 = (i < sizeof(b)) ? b[i] : 0;
-        result[i] = coeff1 + coeff2;;
+        result[i] = coeff1 + coeff2;
     }
 
+    return result;
+}
+
+double* SubtractionOfPolynomials(double* a, double* b) {
+    double* result;
+    int max_degree;
+
+    if (sizeof(a) >= sizeof(b))
+        max_degree = sizeof(a);
+    else if (sizeof(a) < sizeof(b))
+        max_degree = sizeof(b);
+
+    result = (double*)malloc(max_degree * sizeof(double));
+
+    for (int i = 0; i < max_degree; ++i) {
+        double coeff1 = (i < sizeof(a)) ? a[i] : 0;
+        double coeff2 = (i < sizeof(b)) ? b[i] : 0;
+        result[i] = coeff1 - coeff2;
+    }
+
+    return result;
+}
+
+//double* MultiplyingPolynomials(double* a, double* b) {
+//    double* result;
+//
+//    int multiplying;
+//
+//    multiplying = sizeof(a) + sizeof(b);
+//
+//    result = (double*)malloc(multiplying * sizeof(double));
+//
+//    for (int i = 0; i < multiplying; ++i) {
+//        
+//    }
+//
+//    return result;
+//}
+
+double* MultiplyingApolynomialByANumber(double* a, int degree, double number) {
+    double* result;
+
+    result = (double*)malloc((degree+1) * sizeof(double));
+
+    for (int i = 0; i <= degree; i++) {
+        result[i] = a[i] * number;
+    }
     return result;
 }
