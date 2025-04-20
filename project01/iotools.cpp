@@ -86,7 +86,7 @@ int iotools_Int_InputInOutRange(std::string UserHint, std::string FailHint, int 
             }
         } while (container > startRange || container < EndRange); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
     }
-    
+
     return container; //вернём итоговое введённое значение
 }
 
@@ -121,20 +121,20 @@ int iotools_Int_InputMoreLessThanValue(std::string UserHint, std::string FailHin
     return container; //вернём итоговое введённое значение
 }
 void sleep(float seconds) {
-	clock_t startClock = clock();
-	float secondsAhead = seconds * CLOCKS_PER_SEC;
-	// do nothing until the elapsed time has passed.
-	while (clock() < startClock + secondsAhead);
-	return;
+    clock_t startClock = clock();
+    float secondsAhead = seconds * CLOCKS_PER_SEC;
+    // do nothing until the elapsed time has passed.
+    while (clock() < startClock + secondsAhead);
+    return;
 }
 
 void eraseline(int n)
 {
-	cout << "\33[2K\r";
+    cout << "\33[2K\r";
 
-	for (int i = 0; i < n; i++)
-	{
-		cout << "\033[1A"; 
-		cout << "\33[2K\r"; 
-	}
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\033[1A";
+        cout << "\33[2K\r";
+    }
 }

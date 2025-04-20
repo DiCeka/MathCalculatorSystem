@@ -34,6 +34,12 @@
     <Filter Include="Исходные файлы\Папка для пользователей\Работа с функциями">
       <UniqueIdentifier>{9b114e8c-2cb2-457a-9510-7994ad1d0b55}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\Папка для пользователей\Работа с функциями\Определение функций">
+      <UniqueIdentifier>{002ab24e-2818-40ca-931a-722f08d9c9ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Папка для пользователей\Работа с функциями\Общие параметры">
+      <UniqueIdentifier>{37f28609-657d-42d0-a39c-8ecddc80b60a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="project01.cpp">
@@ -72,6 +78,15 @@
     <ClCompile Include="Fraction.cpp">
       <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
     </ClCompile>
+    <ClCompile Include="Fraction.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
+    </ClCompile>
+    <ClCompile Include="FUNCTION_DEF_REAL.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Работа с функциями\Определение функций</Filter>
+    </ClCompile>
+    <ClCompile Include="FUNC_DATA_REALISATION.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Работа с функциями\Общие параметры</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calculators.h">
@@ -92,6 +107,15 @@
     <ClInclude Include="Fraction.h">
       <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
     </ClInclude>
+    <ClInclude Include="ArrayTools.h">
+      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
+    </ClInclude>
+    <ClInclude Include="Fraction.h">
+      <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -133,6 +133,9 @@
     <ClCompile Include="Fraction.cpp" />
     <ClCompile Include="FractionCalculator.cpp" />
     <ClCompile Include="FunctionsCalculator.cpp" />
+    <ClCompile Include="FUNCTION_DEF_REAL.cpp" />
+    <ClCompile Include="FUNC_DATA_REALISATION.cpp" />
+    <ClCompile Include="FUNC_OPERATIONS_REAL.cpp" />
     <ClCompile Include="iotools.cpp" />
     <ClCompile Include="MatrCalculator.cpp" />
     <ClCompile Include="Matrix.cpp" />
@@ -140,14 +143,19 @@
     <ClCompile Include="PolynimialCalculator.cpp" />
     <ClCompile Include="ProbabilityAndStatisticsCalculator.cpp" />
     <ClCompile Include="project01.cpp" />
+    <ClCompile Include="SDL_REALISATION.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrayTools.h" />
     <ClInclude Include="Calculators.h" />
     <ClInclude Include="Fraction.h" />
+    <ClInclude Include="FUNCTIONS_DEFINITION.h" />
+    <ClInclude Include="FUNC_DATA_MAIN.h" />
+    <ClInclude Include="FUNC_OPERATIONS.h" />
     <ClInclude Include="iotools.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Polynomial.h" />
+    <ClInclude Include="SDL_WORK.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
