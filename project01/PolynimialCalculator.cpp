@@ -42,7 +42,9 @@ void PolynimialCalculator( bool &isExecuting)
 		cout << endl << "=" << endl;
 		c = AdditionOfPolynomials(a, b);
 		OutputPolynomial(c, max(a_degree, b_degree));
-
+		free(a);
+		free(b);
+		free(c);
 	}; break;
 
 	case 2: {
@@ -74,10 +76,44 @@ void PolynimialCalculator( bool &isExecuting)
 		cout << endl << "=" << endl;
 		c = SubtractionOfPolynomials(a, b);
 		OutputPolynomial(c, max(a_degree, b_degree));
-
+		free(a);
+		free(b);
+		free(c);
 	}; break;
 
-	//case 3: MultiplyingPolynomials(); break;
+	case 3: {
+		double* a, * b, * c;
+		int a_degree, b_degree;
+
+		cout << "Введите степень первого многочлена: "; cin >> a_degree;
+
+		while (a_degree < 0) {
+			cout << "Error! Введено некорректное значение степени многочлена.";
+			cout << "Введите степень многочлена: "; cin >> a_degree;
+		}
+
+		a = InputPolynomial(a_degree);
+
+
+		cout << "Введите степень второго многочлена: "; cin >> b_degree;
+
+		while (b_degree < 0) {
+			cout << "Error! Введено некорректное значение степени многочлена.";
+			cout << "Введите степень многочлена: "; cin >> b_degree;
+		}
+
+		b = InputPolynomial(b_degree);
+
+		OutputPolynomial(a, a_degree);
+		cout << endl << "*" << endl;
+		OutputPolynomial(b, b_degree);
+		cout << endl << "=" << endl;
+		c = MultiplyingPolynomials(a, b);
+		OutputPolynomial(c, (a_degree+b_degree));
+		free(a);
+		free(b);
+		free(c);
+	}; break;
 
 	case 4: {
 		double* a, * c;
@@ -101,10 +137,13 @@ void PolynimialCalculator( bool &isExecuting)
 		cout << endl << "=" << endl;
 		c = MultiplyingApolynomialByANumber(a, a_degree, number);
 		OutputPolynomial(c, a_degree);
-
+		free(a);
+		free(c);
 	}; break;
+
 	//case 5: DerivativeOfAPolynomial(); break;
 	//case 6: ColumnDivisionOfPolynomials(); break;
+
 	}
 
 	cout << endl;

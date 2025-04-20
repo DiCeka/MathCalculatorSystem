@@ -12,7 +12,7 @@ double* AdditionOfPolynomials(double* a, double* b);
 
 double* SubtractionOfPolynomials(double* a, double* b);
 
-//double* MultiplyingPolynomials(double* a, double*b);
+double* MultiplyingPolynomials(double* a, double*b);
 
 double* MultiplyingApolynomialByANumber(double*a,int degree, double number);
 
