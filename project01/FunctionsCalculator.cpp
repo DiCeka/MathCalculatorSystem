@@ -8,10 +8,6 @@
 #include "FUNCTIONS_DEFINITION.h"
 
 using namespace std;
-const int vars_amount = 5;
-const float APROXIMATY = 0.00001;
-const int MAX_ROOTS = 100;
-const float STEP = 0.01;
 
 
 
