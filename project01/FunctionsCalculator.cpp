@@ -4,6 +4,8 @@
 #include "iotools.h"
 #include <string>
 #include "SDL.h"
+#include "FUNC_DATA_MAIN.h"
+#include "FUNCTIONS_DEFINITION.h"
 
 using namespace std;
 const int vars_amount = 5;
@@ -11,28 +13,59 @@ const float APROXIMATY = 0.00001;
 const int MAX_ROOTS = 100;
 const float STEP = 0.01;
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 600;
 
-int parameters[vars_amount] = { 0 };
-float POLYNOMUS_FUNC(float x) {
-	return NULL;
+
+
+
+//ВЫБОР ОПЕРАЦИИ
+string defined_integral_operation_title = "1) Вычислить определённый интеграл на отрезке [A; B] (пользовательский ввод);\n\n";
+string graph_generation_operation_title = "2) Построение и визуализация графика;\n\n";
+string root_determination_operation_title = "3) Поиск корня (y = 0) на отрезке [A; B] (пользовательский ввод);\n\n";
+string extremes_determination_operation_title = "4)(В РАЗРАБОТКЕ!!!) Поиск экстремумов на отрезке [A; B] (пользовательский ввод);\n\n";
+
+string OPERATIONS[4] = { defined_integral_operation_title, graph_generation_operation_title,
+	root_determination_operation_title, extremes_determination_operation_title };
+
+
+int selection_func;
+int selection_operation;
+
+void FUNC_EXTREMES_DEFINITIVE(float f (float), float a, float b) {
+	float x1 = a;
+	float x2 = x1 + STEP;
+	float x3 = x2 + STEP;
+
+	while (x3 <= b) {
+		float y1 = f(x1);
+		float y2 = f(x2);
+		float y3 = f(x3);
+
+		// Проверяем локальный экстремум: если середина выше/ниже соседей
+		if ((y2 > y1 && y2 > y3) || (y2 < y1 && y2 < y3)) {
+			std::cout << "Экстремум в x = " << x2 << ", f(x) = " << y2;
+			if (y2 > y1 && y2 > y3)
+				std::cout << " → максимум\n";
+			else
+				std::cout << " → минимум\n";
+		}
+
+		// Двигаем окно
+		x1 = x2;
+		x2 = x3;
+		x3 += STEP;
+	}
 }
-float POW_FUNC(float x) {
-	return parameters[0] * pow(x, parameters[1]) + parameters[2];
-}
-float EXP_FUNC(float x) {
-	return parameters[0] * pow(parameters[1], parameters[2] * x) +
-		parameters[3];
-}
-float LOG_FUNC(float x) {
-	return parameters[0] * log(parameters[1] * x) + parameters[2];
-}
-float SIN_FUNC(float x) {
-	return (parameters[0] * 1.0) * sin(parameters[1] * x * 1.0 + parameters[2]);
-}
-float COS_FUNC(float x) {
-	return (parameters[0] * 1.0) * cos(parameters[1] * x * 1.0 + parameters[2]);
+
+
+
+float FUNC_INTEGRATE_CALCULATIOn(float (*func)(float), float a, float b, int n) {
+	float h = (b - a) / n;
+	float sum = 0.5 * (func(a) + func(b));
+
+	for (int i = 1; i < n; ++i) {
+		sum += func(a + i * h);
+	}
+	return sum * h;
 }
 
 void SDL_TERMINATION(SDL_Window* win, SDL_Renderer* REND) {
@@ -57,9 +90,6 @@ int SDL_INITIALIZATION(SDL_Window*& win, int winW, int winH) {
 
 }
 
-SDL_Window *WINDOW;
-SDL_Renderer *RENDER;
-SDL_Event EVENT;
 
 void GRAPH_VISUALISATOR(float (*function)(float), int begin, int end) {
 	SDL_INITIALIZATION(WINDOW, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -144,7 +174,7 @@ void GRAPH_VISUALISATOR(float (*function)(float), int begin, int end) {
 
 }
 
-float RootEvaluate(float (*F)(float), float x1, float x2) {
+float FUNC_GET_ROOT(float (*F)(float), float x1, float x2) {
 	float mid;
 	while ((x2 - x1) > APROXIMATY) {
 		mid = (x1 + x2) / 2.0;
@@ -157,14 +187,14 @@ float RootEvaluate(float (*F)(float), float x1, float x2) {
 
 }
 
-int AllRootsResearch(float (*f)(float), float start, float end, float step, float *roots, int maxRoots) {
+int FUNC_PROCEDURAL_ROOTS_EVALUATION(float (*f)(float), float start, float end, float step, float *roots, int maxRoots) {
 	float x1 = start;
 	float x2 = start + step;
 	int count = 0;
 
 	while (x2 <= end && count < maxRoots) {
 		if (f(x1) * f(x2) <= 0) {
-			float root = RootEvaluate(f, x1, x2);
+			float root = FUNC_GET_ROOT(f, x1, x2);
 			roots[count++] = root;
 		}
 		x1 = x2;
@@ -175,62 +205,30 @@ int AllRootsResearch(float (*f)(float), float start, float end, float step, floa
 	return count;
 }
 
-void PROCEDURE_RootEvauluation() {
 
-}
 
 void FunctionsCalculator(bool& isexecuting)
 {
-	//ВЫБОР ФУНКЦИИ
-	string polynomial_title = "1) Полином степени N (a, N - пользовательские значения)\na0 + a1*x + a2*x^2 + .... + aN*x^N;\n\n";
-	string power_title = "2) Степенная функция (a, b, c - пользовательские значения)\na * x^b + c;\n\n";
-	string exponental_title = "3) Показательная функция (a, b, c, d - пользовательские значения)\na * b^(c*x)+d;\n\n";
-	string logariphmic_title = "4) Логарифмическая функция (a, b, c - пользовательские значения)\na * Ln(b*x) + c\n\n";
-	string sin_title = "5) Синусоида (a, b, c, d - пользовательские значения)\na*sin(b*x + c) + d;\n\n";
-	string cos_title = "6) Косинусоида (a, b, c, d - пользовательские значения)\na*cos(b*x + c) + d;\n\n\n\n";
-
-	int vars_containing_data[6][vars_amount] = {
-		{1,0,0,0,1},
-		{1,1,1,0,0},
-		{1,1,1,1,0},
-		{1,1,1,0,0},
-		{1,1,1,1,0},
-		{1,1,1,1,0}
-	};
-
-	//FUNCTIONS funcs;
-	//a b c d N
-
-	string TITLES[6] = { polynomial_title, power_title, exponental_title, 
-		logariphmic_title, sin_title, cos_title };
-
+	firstlaunch = true;
+	
 	system("cls");
 	cout << "КАЛЬКУЛЯТОР ФУНКЦИЙ\n\n";
 	cout << "Перечень допустимых функций: \n\n";
 
 	for (int i = 0; i < 6; i++) cout << TITLES[i];
 
-	int selection_func = iotools_Int_InputInOutRange("Введите номер нужной функции (1-6): ", "Ошибка!", 1, 6, 3);
+	selection_func = iotools_Int_InputInOutRange("Введите номер нужной функции (1-6): ", "Ошибка!", 1, 6, 3);
 
-	system("cls"); cout << "ВЫБРАНА ФУНКЦИЯ: \n\n" << TITLES[selection_func - 1];
+	system("cls"); cout << "ВЫБРАНА ФУНКЦИЯ: \n\n" << TITLES[selection_func - 1].erase(0, 3);
 	system("pause");
-
-	//ВЫБОР ОПЕРАЦИИ
-	string defined_integral_operation_title = "1) Вычислить определённый интеграл на отрезке [A; B] (пользовательский ввод);\n\n";
-	string graph_generation_operation_title = "2) Построение и визуализация графика;\n\n";
-	string root_determination_operation_title = "3) Поиск корня (y = 0) на отрезке [A; B] (пользовательский ввод);\n\n";
-	string extremes_determination_operation_title = "4) Поиск экстремумов на отрезке [A; B] (пользовательский ввод);\n\n";
-
-	string OPERATIONS[4] = { defined_integral_operation_title, graph_generation_operation_title, 
-		root_determination_operation_title, extremes_determination_operation_title};
 
 	system("cls"); cout << "ПЕРЕЧЕНЬ ВОЗМОЖНЫХ ОПЕРАЦИЙ: \n\n";
 	for (int i = 0; i < 4; i++) cout << OPERATIONS[i];
 
-	int selection_operation = iotools_Int_InputInOutRange("\nВыберите нужную операцию (1-4): ", "Ошибка!", 1, 4, 4);
+	selection_operation = iotools_Int_InputInOutRange("\nВыберите нужную операцию (1-4): ", "Ошибка!", 1, 4, 4);
 
 	system("cls");
-	cout << "ВЫБРАНА ОПЕРАЦИЯ: \n\n" << OPERATIONS[selection_operation - 1] << "\n\n";
+	cout << "ВЫБРАНА ОПЕРАЦИЯ: \n\n" << OPERATIONS[selection_operation - 1].erase(0, 3) << "\n\n";
 	system("pause");
 
 
@@ -255,8 +253,8 @@ void FunctionsCalculator(bool& isexecuting)
 
 	//ЗАПОЛНЕНИ ПАРАМЕТРОВ a,b,c,d,N
 	
-
-	for (int i = 0; i < vars_amount; i++) {
+	
+	for (int i = 0; i < VARS_AMOUNT; i++) {
 		if (vars_containing_data[selection_func - 1][i] == 1) {
 			switch (i)
 			{
@@ -264,9 +262,12 @@ void FunctionsCalculator(bool& isexecuting)
 			case 1: cout << "Введите b: "; break;
 			case 2: cout << "Введите c: "; break;
 			case 3: cout << "Введите d: "; break;
-			case 4: cout << "Введите N: "; break;
+			case 4: cout << "Введите N: "; 
+				
+				break;
 			}
 			cin >> parameters[i];
+			if (i == 4) params_a = POLYNOMUS_PARAMS_FILLMENT();
 		}
 
 	}
@@ -274,16 +275,17 @@ void FunctionsCalculator(bool& isexecuting)
 	float ROOTS[MAX_ROOTS] = {0.0};
 	int count_roots = 0;
 	
-	float(*funcPTRS[])(float) = {&POLYNOMUS_FUNC,&POW_FUNC, &EXP_FUNC, &LOG_FUNC, &SIN_FUNC, &COS_FUNC};
 	switch (selection_operation) {
 	case 1: //интеграл
-		cout << "В РАЗРАБОТКЕ!" << endl;
+		cout << "Определённый интеграл от: " << interval_begining << " до " << interval_ending << " равен: " <<
+			FUNC_INTEGRATE_CALCULATIOn(funcPTRS[selection_func - 1], interval_begining, interval_ending, INTEGRATION_APPROXIMATY);
+		cout << endl;
 		break;
 	case 2: // график
 		GRAPH_VISUALISATOR(funcPTRS[selection_func - 1], interval_begining, interval_ending);
 		break;
 	case 3: // корни
-		count_roots = AllRootsResearch(funcPTRS[selection_func - 1], (float)interval_begining,
+		count_roots = FUNC_PROCEDURAL_ROOTS_EVALUATION(funcPTRS[selection_func - 1], (float)interval_begining,
 			(float)interval_ending, STEP, ROOTS, MAX_ROOTS);
 
 		cout << "Найдено корней: " << count_roots << "\n";
@@ -293,12 +295,13 @@ void FunctionsCalculator(bool& isexecuting)
 		cout << endl;
 		break;
 	case 4: //экстрим
-		cout << "В РАЗРАБОТКЕ!" << endl;
+		FUNC_EXTREMES_DEFINITIVE(funcPTRS[selection_func - 1], interval_begining, interval_ending);
 		break;
 
 	}
-	
+	GRAPH_VISUALISATOR(funcPTRS[selection_func - 1], interval_begining, interval_ending);
 
+	delete[] params_a;
 	
 	//запрос выйти в меню или продолжить этот калькулятор
 	CycleRequest(isexecuting);
