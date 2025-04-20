@@ -14,7 +14,7 @@
 using namespace std;
 void show_menu() {
     cout << "**************************\n";
-    cout << "*      Калькулятор дробей *\n";
+    cout << "*    Калькулятор дробей   *\n";
     cout << "**************************\n";
     cout << "* 1. Сложение             *\n";
     cout << "* 2. Вычитание            *\n";
@@ -22,7 +22,7 @@ void show_menu() {
     cout << "* 4. Деление              *\n";
     cout << "* 5. Выход                *\n";
     cout << "**************************\n";
-    cout << "Выберите операцию (1-5): ";
+    cout << "Выберите операцию (1-5): \n";
 }
 void clearScreen() {
     system(CLEAR);
@@ -59,6 +59,8 @@ void FractionCalculator(bool& isexecuting)
         while (!(cin >> choice) || choice < 1 || choice > 5) {
             cout << "Некорректный ввод. Введите число от 1 до 5: ";
             clearInputBuffer();
+            system("pause");
+            eraseline(2);
         }
         if (choice == 5) break;
         Fraction a = input_fraction("\nВведите первую дробь (числитель знаменатель): ");
@@ -70,8 +72,11 @@ void FractionCalculator(bool& isexecuting)
         case 2: result = subtract(a, b); op = '-'; break;
         case 3: result = multiply(a, b); op = '*'; break;
         case 4:
-            if (b.num == 0) {
-                cout << "Ошибка: деление на ноль!\n";
+            if (choice == 4 && b.num == 0) {
+                cout << "Ошибка: деление на ноль! Нажмите Enter...";
+                cin.ignore();
+                cin.get();
+                clearScreen();
                 continue;
             }
             result = divide(a, b);
