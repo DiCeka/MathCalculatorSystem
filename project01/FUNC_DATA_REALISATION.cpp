@@ -11,11 +11,12 @@ const int SCREEN_WIDTH = 800;
 const int SCREEN_HEIGHT = 600;
 
 int* params_a;
-
+int selection_func;
+int selection_operation;
 int parameters[VARS_AMOUNT];
 
 
-bool firstlaunch;
+bool firstlaunch = true;
 
 SDL_Window* WINDOW=nullptr;
 SDL_Renderer* RENDER=nullptr;

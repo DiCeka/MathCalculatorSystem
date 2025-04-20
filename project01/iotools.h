@@ -1,10 +1,17 @@
 #pragma once
 #include <string>
 
+
 //Функция обработки ввода на несоответствие типов данных
 //Если пользователь введёт, допустим, в int строку, программа обычно сломается и начнёт вести себя хаотично
 //Эта функция обработает этот случай и очистит поток ввода, чтобы программа не реагировала на ошибочный ввод
 void CinQualification();
+
+//Фунция проверяет на корректность ввода переменной типа double
+double iotools_Double_Input(std::string UserHint, std::string FailHint, int linesToClear);
+
+//Фунция проверяет на корректность ввода переменной типа int
+int iotools_Int_Input(std::string UserHint, std::string FailHint, int linesToClear);
 
 //ОБРАБОТКА ЗАПРОСА НА ВЫХОД В МЕНЮ
 void CycleRequest(bool& isexecuting);

@@ -1,32 +1,26 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <string>
 #include "FUNC_DATA_MAIN.h"
 #include "iotools.h"
 using namespace std;
-//определение
-string polynomial_title = "1) Полином степени N (a, N - пользовательские значения)\na0 + a1*x + a2*x^2 + .... + aN*x^N;\n\n";
-string power_title = "2) Степенная функция (a, b, c - пользовательские значения)\na * x^b + c;\n\n";
-string exponental_title = "3) Показательная функция (a, b, c, d - пользовательские значения)\na * b^(c*x)+d;\n\n";
-string logariphmic_title = "4) Логарифмическая функция (a, b, c - пользовательские значения)\na * Ln(b*x) + c\n\n";
-string sin_title = "5) Синусоида (a, b, c, d - пользовательские значения)\na*sin(b*x + c) + d;\n\n";
-string cos_title = "6) Косинусоида (a, b, c, d - пользовательские значения)\na*cos(b*x + c) + d;\n\n\n\n";
+//РѕРїСЂРµРґРµР»РµРЅРёРµ
+string polynomial_title = "1 - РџРѕР»РёРЅРѕРј СЃС‚РµРїРµРЅРё N\n  a0 + a1*x + a2*x^2 + .... + aN*x^N;\n\n";
+string power_title = "2 - РЎС‚РµРїРµРЅРЅР°СЏ С„СѓРЅРєС†РёСЏ\n  a * x^b + c;\n\n";
+string exponental_title = "3 - РџРѕРєР°Р·Р°С‚РµР»СЊРЅР°СЏ С„СѓРЅРєС†РёСЏ\n  a * b^(c*x)+d;\n\n";
+string logariphmic_title = "4 - Р›РѕРіР°СЂРёС„РјРёС‡РµСЃРєР°СЏ С„СѓРЅРєС†РёСЏ\n  a * Ln(b*x) + c\n\n";
+string sin_title = "5 - РЎРёРЅСѓСЃРѕРёРґР°\n  a*sin(b*x + c) + d;\n\n";
+string cos_title = "6 - РљРѕСЃРёРЅСѓСЃРѕРёРґР°\n  a*cos(b*x + c) + d;\n\n\n\n";
 
-int vars_containing_data[6][VARS_AMOUNT] = {
-	{0,0,0,0,1},
-	{1,1,1,0,0},
-	{1,1,1,1,0},
-	{1,1,1,0,0},
-	{1,1,1,1,0},
-	{1,1,1,1,0}
-};
+
 string TITLES[6] = { polynomial_title, power_title, exponental_title,
 		logariphmic_title, sin_title, cos_title };
 
 int* POLYNOMUS_PARAMS_FILLMENT() {
 	int* p = new int[parameters[4]];
 	for (int i = 0; i < parameters[4]; i++) {
-		int aN = iotools_Int_Input("Введите a" + to_string(i) + ": ", "Ошибочный ввод!", 3);
+		string h = "Р’РІРµРґРёС‚Рµ a" + to_string(i) + ": ";
+		int aN = iotools_Int_Input(h, "РћС€РёР±РѕС‡РЅС‹Р№ РІРІРѕРґ!", 3);
 		p[i] = aN;
 	}
 	return p;

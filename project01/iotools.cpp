@@ -18,6 +18,48 @@ void CinQualification() {
     }
 }
 
+double iotools_Double_Input(string UserHint, string FailHint, int linesToClear)
+{
+    double container;
+    bool isinvalid;
+    do
+    {
+        isinvalid = false;
+        cout << UserHint;
+        cin >> container;
+        if (cin.fail()) {
+            isinvalid = true;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << FailHint << "\n";
+            system("pause");
+            eraseline(linesToClear);
+        }
+    } while (isinvalid);
+    return container;
+}
+
+int iotools_Int_Input(string UserHint, string FailHint, int linesToClear)
+{
+    int container;
+    bool isinvalid;
+    do
+    {
+        isinvalid = false;
+        cout << UserHint;
+        cin >> container;
+        if (cin.fail()) {
+            isinvalid = true;
+            cin.clear();
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << FailHint << "\n";
+            system("pause");
+            eraseline(linesToClear);
+        }
+    } while (isinvalid);
+    return container;
+}
+
 int iotools_Int_InputInOutRange(std::string UserHint, std::string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange) {
     int container; //записываем сюда все введеное пользователем
     if (!flipRange) { //проверка на ввод В диапазоне
@@ -44,7 +86,7 @@ int iotools_Int_InputInOutRange(std::string UserHint, std::string FailHint, int 
             }
         } while (container > startRange || container < EndRange); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
     }
-    
+
     return container; //вернём итоговое введённое значение
 }
 
@@ -78,22 +120,21 @@ int iotools_Int_InputMoreLessThanValue(std::string UserHint, std::string FailHin
     }
     return container; //вернём итоговое введённое значение
 }
-
 void sleep(float seconds) {
-	clock_t startClock = clock();
-	float secondsAhead = seconds * CLOCKS_PER_SEC;
-	// do nothing until the elapsed time has passed.
-	while (clock() < startClock + secondsAhead);
-	return;
+    clock_t startClock = clock();
+    float secondsAhead = seconds * CLOCKS_PER_SEC;
+    // do nothing until the elapsed time has passed.
+    while (clock() < startClock + secondsAhead);
+    return;
 }
 
 void eraseline(int n)
 {
-	cout << "\33[2K\r";
+    cout << "\33[2K\r";
 
-	for (int i = 0; i < n; i++)
-	{
-		cout << "\033[1A"; 
-		cout << "\33[2K\r"; 
-	}
+    for (int i = 0; i < n; i++)
+    {
+        cout << "\033[1A";
+        cout << "\33[2K\r";
+    }
 }
