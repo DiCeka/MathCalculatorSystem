@@ -12,10 +12,13 @@ double* AdditionOfPolynomials(double* a, double* b);
 
 double* SubtractionOfPolynomials(double* a, double* b);
 
-double* MultiplyingPolynomials(double* a, double*b);
+double* MultiplyingPolynomials(double* a, double* b);
 
-double* MultiplyingApolynomialByANumber(double*a,int degree, double number);
+double* MultiplyingApolynomialByANumber(double* a, int degree, double number);
 
-//void DerivativeOfAPolynomial();
-//
+double* DerivativeOfAPolynomial(double* a, int degree);
+
+void OutputDerivative(const double* a, int degree);
+
+
 //void ColumnDivisionOfPolynomials();

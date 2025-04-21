@@ -6,7 +6,7 @@
 #include <string>
 using namespace std;
 
-void PolynimialCalculator( bool &isExecuting)
+void PolynimialCalculator(bool& isExecuting)
 {
 	int selecter = iotools_Int_InputInOutRange("Выберете действие с многочленом:\n\t 1 - Сложение многочленов\n\t 2 - Вычитание многочленов\n\t 3 - Умножение многочленов\n\t 4 - Умножение многочлена на число\n\t \
 5 - Вычисление производной от многочлена\n\t 6 - Деление многочлена в столбик\n", "ERROR: Такого действия нет!", 1, 6, 10);
@@ -59,7 +59,7 @@ void PolynimialCalculator( bool &isExecuting)
 		}
 
 		a = InputPolynomial(a_degree);
-		
+
 
 		cout << "Введите степень второго многочлена: "; cin >> b_degree;
 
@@ -109,7 +109,7 @@ void PolynimialCalculator( bool &isExecuting)
 		OutputPolynomial(b, b_degree);
 		cout << endl << "=" << endl;
 		c = MultiplyingPolynomials(a, b);
-		OutputPolynomial(c, (a_degree+b_degree));
+		OutputPolynomial(c, (a_degree + b_degree));
 		free(a);
 		free(b);
 		free(c);
@@ -141,8 +141,32 @@ void PolynimialCalculator( bool &isExecuting)
 		free(c);
 	}; break;
 
-	//case 5: DerivativeOfAPolynomial(); break;
-	//case 6: ColumnDivisionOfPolynomials(); break;
+	case 5: {
+		double* a, * c;
+		int a_degree;
+
+		cout << "Введите степень многочлена: "; cin >> a_degree;
+
+		while (a_degree < 0) {
+			cout << "Error! Введено некорректное значение степени многочлена.";
+			cout << "Введите степень многочлена: "; cin >> a_degree;
+		}
+
+		a = InputPolynomial(a_degree);
+
+		cout << endl << "y= ";
+
+		OutputPolynomial(a, a_degree);
+
+		cout << endl << "y'= ";
+
+		c = DerivativeOfAPolynomial(a, a_degree);
+
+		OutputDerivative(c, a_degree);
+		free(a);
+		free(c);
+	}; break;
+		  //case 6: ColumnDivisionOfPolynomials(); break;
 
 	}
 

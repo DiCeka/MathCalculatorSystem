@@ -83,7 +83,7 @@ double* MultiplyingPolynomials(double* a, double* b) {
 
 	result = (double*)malloc(size * sizeof(double));
 
-	for (int i = 0; i <= sizeof(a); ++i){
+	for (int i = 0; i <= sizeof(a); ++i) {
 		for (int j = 0; j <= sizeof(b); ++j) {
 			result[i + j] += a[i] * b[j];
 		}
@@ -101,4 +101,33 @@ double* MultiplyingApolynomialByANumber(double* a, int degree, double number) {
 		result[i] = a[i] * number;
 	}
 	return result;
+}
+
+double* DerivativeOfAPolynomial(double* a, int degree) {
+	double* result;
+
+	result = (double*)malloc((degree-1) * sizeof(double));
+
+	for (int i = 1; i <= degree; ++i) {
+		result[i-1] = a[i] * i;
+	}
+
+	return result;
+}
+
+void OutputDerivative(const double* a, int degree) {
+	bool flag = true;
+	bool flag0 = true;
+	for (int i = degree-1; i >= 0; --i) {
+		if (a[i] != 0) {
+			flag0 = false;
+			if (!flag) {
+				cout << " + ";
+			}
+			cout << a[i] << "x^" << i;
+			flag = false;
+		}
+	}
+	if (flag0)
+		cout << "0";
 }
