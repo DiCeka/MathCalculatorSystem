@@ -20,5 +20,4 @@ double* DerivativeOfAPolynomial(double* a, int degree);
 
 void OutputDerivative(const double* a, int degree);
 
-
-//void ColumnDivisionOfPolynomials();
+void ColumnDivisionOfPolynomials(double* a, int a_degree, double* b, int b_degree, double* quotient, int q_degree, double* remainder, int r_degree);

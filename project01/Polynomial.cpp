@@ -106,10 +106,10 @@ double* MultiplyingApolynomialByANumber(double* a, int degree, double number) {
 double* DerivativeOfAPolynomial(double* a, int degree) {
 	double* result;
 
-	result = (double*)malloc((degree-1) * sizeof(double));
+	result = (double*)malloc((degree - 1) * sizeof(double));
 
 	for (int i = 1; i <= degree; ++i) {
-		result[i-1] = a[i] * i;
+		result[i - 1] = a[i] * i;
 	}
 
 	return result;
@@ -118,7 +118,7 @@ double* DerivativeOfAPolynomial(double* a, int degree) {
 void OutputDerivative(const double* a, int degree) {
 	bool flag = true;
 	bool flag0 = true;
-	for (int i = degree-1; i >= 0; --i) {
+	for (int i = degree - 1; i >= 0; --i) {
 		if (a[i] != 0) {
 			flag0 = false;
 			if (!flag) {
@@ -130,4 +130,19 @@ void OutputDerivative(const double* a, int degree) {
 	}
 	if (flag0)
 		cout << "0";
+}
+
+void ColumnDivisionOfPolynomials(double* a, int a_degree, double* b, int b_degree, double* quotient, int q_degree, double* remainder, int r_degree) {
+
+	for (int i = 0; i <= a_degree; ++i) {
+		remainder[i] = a[i];
+	}
+
+	for (int i = q_degree; i >= 0; --i) {
+		quotient[i] = remainder[r_degree] / b[b_degree];
+		for (int j = b_degree; j >= 0; --j) {
+			remainder[i + j] -= quotient[i] * b[j];
+		}
+		--r_degree;
+	}
 }

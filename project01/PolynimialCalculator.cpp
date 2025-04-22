@@ -6,6 +6,8 @@
 #include <string>
 using namespace std;
 
+
+
 void PolynimialCalculator(bool& isExecuting)
 {
 	int selecter = iotools_Int_InputInOutRange("Выберете действие с многочленом:\n\t 1 - Сложение многочленов\n\t 2 - Вычитание многочленов\n\t 3 - Умножение многочленов\n\t 4 - Умножение многочлена на число\n\t \
@@ -166,7 +168,52 @@ void PolynimialCalculator(bool& isExecuting)
 		free(a);
 		free(c);
 	}; break;
-		  //case 6: ColumnDivisionOfPolynomials(); break;
+
+	case 6: {
+		double* a, * b;
+		int a_degree, b_degree;
+		double* quotient, * remainder;
+		int q_degree, r_degree;
+
+		cout << "Введите степень первого многочлена: "; cin >> a_degree;
+
+		while (a_degree < 0) {
+			cout << "Error! Введено некорректное значение степени многочлена.";
+			cout << "Введите степень многочлена: "; cin >> a_degree;
+		}
+
+		a = InputPolynomial(a_degree);
+
+
+		cout << "Введите степень второго многочлена: "; cin >> b_degree;
+
+		while (b_degree < 0) {
+			cout << "Error! Введено некорректное значение степени многочлена.";
+			cout << "Введите степень многочлена: "; cin >> b_degree;
+		}
+
+		b = InputPolynomial(b_degree);
+
+		q_degree = max(a_degree, b_degree) - min(a_degree, b_degree);
+		r_degree = max(a_degree, b_degree);
+
+		quotient = (double*)malloc(q_degree + 1 * sizeof(double));
+		remainder = (double*)malloc(r_degree + 1 * sizeof(double));
+
+		OutputPolynomial(a, a_degree);
+		cout << endl << "/" << endl;
+		OutputPolynomial(b, b_degree);
+		cout << endl << "=" << endl;
+		ColumnDivisionOfPolynomials(a, a_degree, b, b_degree, quotient, q_degree, remainder, r_degree);
+		cout << "Частное:" << endl;
+		OutputPolynomial(quotient, q_degree);
+		cout << endl << "Остаток:" << endl;
+		OutputPolynomial(remainder, r_degree);
+		free(a);
+		free(b);
+		free(quotient);
+		free(remainder);
+	}; break;
 
 	}
 
