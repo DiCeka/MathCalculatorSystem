@@ -57,7 +57,7 @@ void ArrOutput2D_double(double** a, int rows, int cols)
         {
             cout << setw(3) << a[i][j] << " ";
         }
-        cout << "\n";
+        cout << "\n\n";
     }
 }
 
@@ -133,7 +133,7 @@ void ArrAddElement1D(int*& a, int& size, int elem)
     a = newarr;
 }
 
-void ArrDelete2D(int** a, int m, int n) {
+void ArrDelete2D_double(double** a, int m, int n) {
     for (int i = 0; i < m; i++) {
         delete[] a[i];
     }

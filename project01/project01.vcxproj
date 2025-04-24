@@ -136,6 +136,7 @@
     <ClCompile Include="iotools.cpp" />
     <ClCompile Include="MatrCalculator.cpp" />
     <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="MatrTools.cpp" />
     <ClCompile Include="Polynomial.cpp" />
     <ClCompile Include="PolynimialCalculator.cpp" />
     <ClCompile Include="ProbabilityAndStatisticsCalculator.cpp" />
@@ -147,6 +148,7 @@
     <ClInclude Include="Fraction.h" />
     <ClInclude Include="iotools.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="MatrTools.h" />
     <ClInclude Include="Polynomial.h" />
   </ItemGroup>
   <ItemGroup>

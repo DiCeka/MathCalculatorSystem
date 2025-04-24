@@ -4,3 +4,5 @@
 //sizeofMatrix MatrixInputSize();
 
 void MatrixSum(bool &is_executing);	
+
+void MatrixRaznost(bool& is_executing);

@@ -72,6 +72,9 @@
     <ClCompile Include="Fraction.cpp">
       <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
     </ClCompile>
+    <ClCompile Include="MatrTools.cpp">
+      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Calculators.h">
@@ -91,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="Fraction.h">
       <Filter>Исходные файлы\Папка для пользователей\Калькулятор обыкновенных дробей</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrTools.h">
+      <Filter>Исходные файлы\Папка для пользователей\Матричный калькулятор</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

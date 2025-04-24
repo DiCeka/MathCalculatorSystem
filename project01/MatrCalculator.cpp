@@ -27,6 +27,7 @@ void MatrCalculator(bool &isexecuting)
 		switch (selecter)
 		{
 		case 1: MatrixSum(is_executing); break;
+		case 2: MatrixRaznost(is_executing); break;
 		}
 	}
 		

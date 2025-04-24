@@ -3,39 +3,11 @@
 #include "ArrayTools.h"
 #include "iotools.h"
 #include <iostream>
+#include "MatrTools.h"
+#include <iomanip>
 using namespace std;
-struct sizeofMatrix
-{
-	int cols;
-	int rows;
-};
-sizeofMatrix MatrixInputSize()
-{
-    cout << "Введите размеры матрицы: ";
-    int a[2]; // массив для структуры размеров...
-    cout << "\033[s";
-    for (int i = 0; i < 2; i++)
-    {
-        bool isinvalid;
-        do
-        {
-            isinvalid = false;
-            cin >> a[i];
-            if (cin.fail()) {
-                isinvalid = true;
-                cin.clear();
-                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                cout << "Неверный ввод." << "\n";
-                system("pause");
-                eraseline(2);
-                cout << "\033[u" << "\33[0K";
-                for (int k = 0; k < i; k++) cout << a[k] << " ";
-            }
-        } while (isinvalid);
-    }
-    sizeofMatrix size = { a[0] , a[1] };
-    return size;
-}
+
+
 
 void MatrixSum(bool &is_executing)
 {
@@ -44,21 +16,71 @@ void MatrixSum(bool &is_executing)
 	cout << "Сложение матриц\n\n";
 
     sizeofMatrix size = MatrixInputSize();
-
-
-	eraseline(3);
+	eraseline(size.rows);
 	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
-
-	double **arr = ArrCreate2D_double(size.rows, size.cols);
-
-	ArrFillKeyboard2D_double(arr, size.rows, size.cols);
-
-    eraseline(3);
-
+	double **arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
+	cout << setw(size.cols *2+1) << "+" << endl;
 
+	double** arr1 = MatrixInput(size);
+	ArrOutput2D_double(arr1, size.rows, size.cols);
+
+	cout << setw(size.cols * 2 + 1) << "=" << endl;
+
+	double** rez = ArrCreate2D_double(size.rows, size.cols);
 	
+	for (int i = 0; i < size.rows; i++)
+	{
+		for (int j = 0; j < size.cols; j++)
+		{
+			rez[i][j] = arr[i][j] + arr1[i][j];
+		}
+	}
+	ArrOutput2D_double(rez, size.rows, size.cols);
 
+
+
+	ArrDelete2D_double(rez, size.cols, size.rows);
+	ArrDelete2D_double(arr1, size.cols, size.rows);
+    ArrDelete2D_double(arr, size.cols, size.rows);
+	CycleRequest(is_executing);
+}
+
+void MatrixRaznost(bool& is_executing)
+{
+	setlocale(LC_ALL, "ru");
+
+	cout << "Вычитание матриц\n\n";
+
+	sizeofMatrix size = MatrixInputSize();
+	eraseline(size.rows);
+	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
+	double** arr = MatrixInput(size);
+	ArrOutput2D_double(arr, size.rows, size.cols);
+
+	cout << setw(size.cols * 2 + 1) << "-" << endl;
+
+	double** arr1 = MatrixInput(size);
+	ArrOutput2D_double(arr1, size.rows, size.cols);
+
+	cout << setw(size.cols * 2 + 1) << "=" << endl;
+
+	double** rez = ArrCreate2D_double(size.rows, size.cols);
+
+	for (int i = 0; i < size.rows; i++)
+	{
+		for (int j = 0; j < size.cols; j++)
+		{
+			rez[i][j] = arr[i][j] - arr1[i][j];
+		}
+	}
+	ArrOutput2D_double(rez, size.rows, size.cols);
+
+
+
+	ArrDelete2D_double(rez, size.cols, size.rows);
+	ArrDelete2D_double(arr1, size.cols, size.rows);
+	ArrDelete2D_double(arr, size.cols, size.rows);
 	CycleRequest(is_executing);
 }
