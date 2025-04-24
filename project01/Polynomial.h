@@ -10,12 +10,14 @@ void OutputPolynomial(const double* a, int degree);
 
 double* AdditionOfPolynomials(double* a, double* b);
 
-//void SubtractionOfPolynomials();
-//
-//void MultiplyingPolynomials();
-//
-//void MultiplyingApolynomialByANumber();
-//
-//void DerivativeOfAPolynomial();
-//
-//void ColumnDivisionOfPolynomials();
+double* SubtractionOfPolynomials(double* a, double* b);
+
+double* MultiplyingPolynomials(double* a, double* b);
+
+double* MultiplyingApolynomialByANumber(double* a, int degree, double number);
+
+double* DerivativeOfAPolynomial(double* a, int degree);
+
+void OutputDerivative(const double* a, int degree);
+
+void ColumnDivisionOfPolynomials(double* a, int a_degree, double* b, int b_degree, double* quotient, int q_degree, double* remainder, int r_degree);
