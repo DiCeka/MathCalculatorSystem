@@ -2,8 +2,8 @@
 
 struct sizeofMatrix
 {
-    int cols;
     int rows;
+    int cols;
 };
 
 sizeofMatrix MatrixInputSize();

@@ -28,6 +28,7 @@ void MatrCalculator(bool &isexecuting)
 		{
 		case 1: MatrixSum(is_executing); break;
 		case 2: MatrixRaznost(is_executing); break;
+		case 3: MatrixProizvedenie(is_executing); break;
 		}
 	}
 		

@@ -6,10 +6,11 @@
 using namespace std;
 
 
+
 sizeofMatrix MatrixInputSize()
 {
     cout << "Введите размеры матрицы: ";
-    int a[2]; // массив для структуры размеров...
+    int a[2] = {0, 0}; // массив для структуры размеров...
     cout << "\033[s";
     for (int i = 0; i < 2; i++)
     {
@@ -36,13 +37,11 @@ sizeofMatrix MatrixInputSize()
 
 double ** MatrixInput(sizeofMatrix size)
 {
-    //cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
-
     double** arr = ArrCreate2D_double(size.rows, size.cols);
 
     ArrFillKeyboard2D_double(arr, size.rows, size.cols);
 
-    eraseline(2);
+    eraseline(size.rows);
     return arr;
 }
 

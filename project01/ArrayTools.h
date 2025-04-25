@@ -21,6 +21,6 @@ void ArrFillKeyboard2D_double(double** a, int rows, int cols);
 
 void ArrAddElement1D(int*& a, int& size, int elem);
 
-void ArrDelete2D_double(double** a, int m, int n);
+void ArrDelete2D_double(double** a, int m);
 
 int ArrCheckElemIn(int* a, int size, int elem);
