@@ -130,3 +130,38 @@ void MatrixProizvedenie(bool &is_executing)
 	ArrDelete2D_double(arr1, size1.rows);
 	CycleRequest(is_executing);
 }
+
+void MatrixProizvWithNumber(bool &is_executing)
+{
+	cout << "Произведение матрицы на число\n\n";
+
+	sizeofMatrix size = MatrixInputSize();
+	eraseline(1);
+	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
+	double** arr = MatrixInput(size);
+	ArrOutput2D_double(arr, size.rows, size.cols);
+
+	cout << setw(size.cols * 2 + 1) << "*" << endl;
+	int a = iotools_Int_Input("Введите второй множитель:\n", "Неверный ввод", 4);
+	eraseline(2);
+	cout << setw(size.cols * 2 + 1) << a << endl;
+
+	double** rez = ArrCreate2D_double(size.rows, size.cols);
+
+	for (int i = 0; i < size.rows; i++)
+	{
+		for (int j = 0; j < size.cols; j++)
+		{
+			rez[i][j] = arr[i][j] * a;
+		}
+	}
+
+	cout << setw(size.cols * 2 + 1) << "=" << endl;
+
+	ArrOutput2D_double(rez, size.rows, size.cols);
+
+
+	ArrDelete2D_double(rez, size.rows);
+	ArrDelete2D_double(arr, size.rows);
+	CycleRequest(is_executing);
+}
