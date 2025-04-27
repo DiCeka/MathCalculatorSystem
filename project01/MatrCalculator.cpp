@@ -30,6 +30,11 @@ void MatrCalculator(bool &isexecuting)
 		case 2: MatrixRaznost(is_executing); break;
 		case 3: MatrixProizvedenie(is_executing); break;
 		case 4: MatrixProizvWithNumber(is_executing); break;
+		case 5: MatrixSumWithNumber(is_executing); break;
+		case 6: MatrixRaznostWithNumber(is_executing); break;
+		case 7: MatrixTransp(is_executing); break;
+		case 8: MatrixReverse(is_executing); break;
+		case 9: MatrixOpredelitel(is_executing); break;
 		}
 	}
 		

@@ -45,5 +45,53 @@ double ** MatrixInput(sizeofMatrix size)
     return arr;
 }
 
+double MatrOprl(double** arr, int size)
+{
+    if (size == 1) return arr[0][0];
+    if (size == 2) return (arr[0][0] * arr[1][1]) - (arr[1][0] * arr[0][1]);
+    if (size == 3) return (arr[0][0] * arr[1][1] * arr[2][2]) + \
+                        (arr[1][0] * arr[2][1] * arr[0][2]) + \
+                        (arr[0][1] * arr[1][2] * arr[2][0]) \
+                                     - \
+                        (arr[2][0] * arr[1][1] * arr[0][2]) - \
+                        (arr[0][1] * arr[1][0] * arr[2][2]) - \
+                        (arr[0][0] * arr[1][2] * arr[2][1]);
+
+    int opr = 0;
+    int e;
+    for (int k = 0; k < size; k++) // все элементы первой строки (j-й индекс)
+    {
+        if (k % 2 == 0) e = 1;
+        else e = -1;
+
+        double** rez = ArrCreate2D_double(size-1, size-1);
+
+        int i1 = 0, j1 = 0;
+
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                if (i != 0 && j != k)
+                {
+                    rez[i1][j1] = arr[i][j];
+
+                    j1 = j1 + 1;
+                    if (j1 == (size - 1)) // если j вывалилась за ширину новой матрицы то переходим на новую строку
+                    {
+                        j1 = 0;
+                        i1 += 1;
+                    }
+                }
+            }
+        }
+
+        opr += e * arr[0][k] * MatrOprl(rez, size-1);
+
+        ArrDelete2D_double(rez, size-1);
+    }
+
+    return opr;
+}
 
 
