@@ -38,6 +38,5 @@ void MatrCalculator(bool &isexecuting)
 		}
 	}
 		
-	//запрос выйти в меню или продолжить этот калькулятор
 	CycleRequest(isexecuting);
 }

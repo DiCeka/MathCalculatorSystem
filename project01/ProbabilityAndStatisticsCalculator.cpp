@@ -15,7 +15,7 @@ using namespace std;
 static void clearScreen() {
     system(CLEAR);
 }
-static void clearInputBuffer() {,
+static void clearInputBuffer() {
     cin.clear();
     while (cin.get() != '\n') {}  
 }
@@ -56,7 +56,7 @@ void StatisticsCalculator(bool& isexecuting) {
             cout << "Введите число благоприятных исходов (m): ";
             while (!(cin >> m)) {
                 clearInputBuffer();
-                cout << "Ошибка! Введите целое число. Нажмите любую клавишу...";,,
+                cout << "Ошибка! Введите целое число. Нажмите любую клавишу...";
                 WAIT;
                 clearScreen();
                 cout << "Введите число благоприятных исходов (m): ";
