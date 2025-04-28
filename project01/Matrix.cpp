@@ -14,30 +14,25 @@ void MatrixSum(bool &is_executing)
 	cout << "Сложение матриц\n\n";
 
     sizeofMatrix size = MatrixInputSize();
+	int ed = size.cols % 2 == 0 ? ed = 1 : ed = 0;
 	eraseline(size.rows);
 	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
 	double **arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols *2+1) << "+" << endl;
+	MatrCenterOutput("+", size.cols, ed);
 
 	double** arr1 = MatrixInput(size);
 	ArrOutput2D_double(arr1, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "=" << endl;
-
-	double** rez = ArrCreate2D_double(size.rows, size.cols);
+	MatrCenterOutput("=", size.cols, ed);
 	
-	for (int i = 0; i < size.rows; i++)
-	{
-		for (int j = 0; j < size.cols; j++)
-		{
-			rez[i][j] = arr[i][j] + arr1[i][j];
-		}
-	}
+	double** rez = ArrCreate2D_double(size.rows, size.cols);
+
+	ArrCopy2D_double( rez, MatrActionWithMatr(arr, size, 1, arr1, size), size );
+	
+
 	ArrOutput2D_double(rez, size.rows, size.cols);
-
-
 
 	ArrDelete2D_double(rez, size.rows);
 	ArrDelete2D_double(arr1, size.rows);
@@ -50,29 +45,24 @@ void MatrixRaznost(bool& is_executing)
 	cout << "Вычитание матриц\n\n";
 
 	sizeofMatrix size = MatrixInputSize();
+	int ed = size.cols % 2 == 0 ? ed = 1 : ed = 0;
 	eraseline(size.rows);
 	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
 	double** arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "-" << endl;
+	MatrCenterOutput("-", size.cols, ed);
 
 	double** arr1 = MatrixInput(size);
 	ArrOutput2D_double(arr1, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "=" << endl;
+	MatrCenterOutput("=", size.cols, ed);
 
 	double** rez = ArrCreate2D_double(size.rows, size.cols);
 
-	for (int i = 0; i < size.rows; i++)
-	{
-		for (int j = 0; j < size.cols; j++)
-		{
-			rez[i][j] = arr[i][j] - arr1[i][j];
-		}
-	}
-	ArrOutput2D_double(rez, size.rows, size.cols);
+	ArrCopy2D_double(rez, MatrActionWithMatr(arr, size, 2, arr1, size), size);
 
+	ArrOutput2D_double(rez, size.rows, size.cols);
 
 
 	ArrDelete2D_double(rez, size.rows);
@@ -86,12 +76,13 @@ void MatrixProizvedenie(bool &is_executing)
 	cout << "Произведение матриц\n\n";
 
 	sizeofMatrix size = MatrixInputSize();
+	int ed = size.cols % 2 == 0 ? ed = 1 : ed = 0;
 	eraseline(1);
 	cout << "Размеры первой матрицы: " << size.rows << "x" << size.cols << "\n\n";
 	double** arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "*" << endl;
+	MatrCenterOutput("*", size.cols, ed);
 
 	sizeofMatrix size1;
 	size1.rows = size.cols;
@@ -105,23 +96,13 @@ void MatrixProizvedenie(bool &is_executing)
 
 	ArrOutput2D_double(arr1, size1.rows, size1.cols);
 
-	cout << setw(size.cols * 2 + 1) << "=" << endl;
+	MatrCenterOutput("=", size.cols, ed);
 
 	sizeofMatrix size2 = { size.rows, size1.cols };
 	double** rez = ArrCreate2D_double(size2.rows, size2.cols);
 
-	for (int i = 0; i < size.rows; i++)
-	{
-		for (int j = 0; j < size1.cols; j++)
-		{
-			double sum = 0;
-			for (int k = 0; k < size.cols; k++)
-			{
-				sum += arr[i][k] * arr1[k][j];
-			}
-			rez[i][j] = sum;
-		}
-	}
+	ArrCopy2D_double(rez, MatrActionWithMatr(arr, size, 3, arr1, size1), size2);
+
 
 	ArrOutput2D_double(rez, size2.rows, size2.cols);
 
@@ -136,15 +117,16 @@ void MatrixProizvWithNumber(bool &is_executing)
 	cout << "Произведение матрицы на число\n\n";
 
 	sizeofMatrix size = MatrixInputSize();
+	int ed = size.cols % 2 == 0 ? ed = 1 : ed = 0;
 	eraseline(1);
 	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
 	double** arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "*" << "\n\n";
+	MatrCenterOutput("*", size.cols, ed);
 	int a = iotools_Int_Input("Введите второй множитель:\n", "Неверный ввод", 4);
 	eraseline(2);
-	cout << setw(size.cols * 2 + 1) << a << "\n\n";
+	cout << setw(size.cols * SETW + ed) << a << "\n\n";
 
 	double** rez = ArrCreate2D_double(size.rows, size.cols);
 
@@ -152,7 +134,7 @@ void MatrixProizvWithNumber(bool &is_executing)
 
 	MatrActionWithNum(rez, size, 3, a);
 
-	cout << setw(size.cols * 2 + 1) << "=" << endl;
+	MatrCenterOutput("=", size.cols, ed);
 
 	ArrOutput2D_double(rez, size.rows, size.cols);
 
@@ -167,16 +149,17 @@ void MatrixSumWithNumber(bool& is_executing)
 	cout << "Сложение матрицы с числом\n\n";
 
 	sizeofMatrix size = MatrixInputSize();
+	int ed = size.cols % 2 == 0 ? ed = 1 : ed = 0;
 	eraseline(1);
 	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
 	double** arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "+" << "\n\n";
+	MatrCenterOutput("+", size.cols, ed);
 
 	int a = iotools_Int_Input("Введите второе слагаемое(число):\n", "Неверный ввод", 4);
 	eraseline(2);
-	cout << setw(size.cols * 2 + 1) << a << "\n\n";
+	cout << setw(size.cols * SETW + ed) << a << "\n\n";
 
 
 	double** rez = ArrCreate2D_double(size.rows, size.cols);
@@ -185,7 +168,7 @@ void MatrixSumWithNumber(bool& is_executing)
 
 	MatrActionWithNum(rez, size, 1, a);
 
-	cout << setw(size.cols * 2 + 1) << "=" << endl;
+	MatrCenterOutput("=", size.cols, ed);
 
 	ArrOutput2D_double(rez, size.rows, size.cols);
 
@@ -200,16 +183,17 @@ void MatrixRaznostWithNumber(bool& is_executing)
 	cout << "Вычитание из матрицы числа\n\n";
 
 	sizeofMatrix size = MatrixInputSize();
+	int ed = size.cols % 2 == 0 ? ed = 1 : ed = 0;
 	eraseline(1);
 	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
 	double** arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "-" << "\n\n";
+	MatrCenterOutput("-", size.cols, ed);
 
 	int a = iotools_Int_Input("Введите вычитаемое:\n", "Неверный ввод", 4);
 	eraseline(2);
-	cout << setw(size.cols * 2 + 1) << a << "\n\n";
+	cout << setw(size.cols * SETW + ed) << a << "\n\n";
 
 
 	double** rez = ArrCreate2D_double(size.rows, size.cols);
@@ -218,7 +202,7 @@ void MatrixRaznostWithNumber(bool& is_executing)
 
 	MatrActionWithNum(rez, size, 2, a);
 
-	cout << setw(size.cols * 2 + 1) << "=" << endl;
+	MatrCenterOutput("=", size.cols, ed);
 
 	ArrOutput2D_double(rez, size.rows, size.cols);
 
@@ -233,12 +217,13 @@ void MatrixTransp(bool& is_executing)
 	cout << "Транспонирование матрицы\n\n";
 
 	sizeofMatrix size = MatrixInputSize();
+	int ed = size.cols % 2 == 0 ? ed = 1 : ed = 0;
 	eraseline(1);
 	cout << "Размеры матрицы: " << size.rows << "x" << size.cols << "\n\n";
 	double** arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "\\/" << "\n\n";
+	MatrCenterOutput("\\/", size.cols, ed);
 
 	sizeofMatrix size1 = {size.cols, size.rows};
 
@@ -264,10 +249,9 @@ void MatrixReverse(bool& is_executing)
 	double** arr = MatrixInput(size);
 	ArrOutput2D_double(arr, size.rows, size.cols);
 
-	cout << setw(size.cols * 2 + 1) << "Обратная матрица:" << "\n\n";
+	cout << "Обратная матрица:" << "\n\n";
 
 	double oprl = MatrOprl(arr, sizeI);
-	cout << oprl << "\n\n";
 
 	if (oprl == 0)
 	{
@@ -289,24 +273,15 @@ void MatrixReverse(bool& is_executing)
 			if (sizeI % 2 == 0) r *= -1;
 		}
 		double** rez1 = ArrCreate2D_double(sizeI, sizeI);
-		// транспонирование
-		for (int i = 0; i < size.rows; i++)
-		{
-			for (int j = 0; j < size.cols; j++)
-			{
-				rez1[j][i] = rez[i][j];
-			}
-		}
+
+		ArrCopy2D_double(rez1, MatrTransp(rez, size), size);
+		
 		MatrActionWithNum(rez1, size, 3, (1.0 / oprl));
 
 		ArrOutput2D_double(rez1, sizeI, sizeI);
 		ArrDelete2D_double(rez1, sizeI);
 		ArrDelete2D_double(rez, sizeI);
 	}
-
-
-	
-
 
 	ArrDelete2D_double(arr, sizeI);
 	CycleRequest(is_executing);
@@ -325,7 +300,7 @@ void MatrixOpredelitel(bool& is_executing)
 
 	cout << "Определитель матрицы равен:" << "\n\n";
 
-	cout << setw(sizeI * 2 + 1) << MatrOprl(arr, size.cols) << "\n\n";
+	cout << setw(sizeI * SETW + 1) << MatrOprl(arr, size.cols) << "\n\n";
 	
 	ArrDelete2D_double(arr, size.rows);
 	CycleRequest(is_executing);

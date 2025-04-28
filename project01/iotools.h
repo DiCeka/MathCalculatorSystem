@@ -13,8 +13,8 @@ double iotools_Double_Input(std::string UserHint, std::string FailHint, int line
 //Фунция проверяет на корректность ввода переменной типа int
 int iotools_Int_Input(std::string UserHint, std::string FailHint, int linesToClear);
 
-//ОБРАБОТКА ЗАПРОСА НА ВЫХОД В МЕНЮ
-void CycleRequest(bool& isexecuting);
+//ОБРАБОТКА ЗАПРОСА НА ВЫХОД В МЕНЮ. Второй аргумент необязательный. Он отвечает за вопрос, который будет задан пользователю.
+void CycleRequest(bool& isexecuting, std::string question = "Выйти в меню?");
 
 //Функция автоматизации обработки ввода пользователя. Возвращает введённое значение с клавиатуры (int)
 //Выводит сообщение для пользователя, обрабатывает ошибочный ввод в случае, если вводится число в/вне заданного диапазона

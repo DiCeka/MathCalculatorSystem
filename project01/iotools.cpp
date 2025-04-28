@@ -4,9 +4,9 @@
 #include <string>
 using namespace std;
 
-void CycleRequest(bool& isexecuting) {
+void CycleRequest(bool& isexecuting, string question) {
 
-    cout << "Выйти в меню?\n1-ДА\n2-НЕТ\n";
+    cout << question << "\n1-ДА\n2-НЕТ\n";
     int selection = iotools_Int_InputInOutRange("", "Такого выбора нет!", 1, 2, 3);
     if (selection == true) { isexecuting = false; system("cls"); }
 }

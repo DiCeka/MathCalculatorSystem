@@ -38,5 +38,5 @@ void MatrCalculator(bool &isexecuting)
 		}
 	}
 		
-	CycleRequest(isexecuting);
+	CycleRequest(isexecuting, "Выйти в главное меню?");
 }

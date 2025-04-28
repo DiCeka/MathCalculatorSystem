@@ -56,7 +56,7 @@ void ArrOutput2D_double(double** a, int rows, int cols)
     {
         for (int j = 0; j < cols; j++)
         {
-            cout << setprecision(3) << setw(7) << a[i][j] << " ";
+            cout << setprecision(3) << setw(6) << a[i][j];
         }
         cout << "\n\n";
     }

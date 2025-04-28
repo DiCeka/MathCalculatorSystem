@@ -3,6 +3,7 @@
 #include <iostream>
 #include "ArrayTools.h"
 #include "iotools.h"
+#include <iomanip>
 using namespace std;
 
 
@@ -73,7 +74,7 @@ double MatrOprl(double** arr, int size)
 
     return opr;
 }
-// РАБОТАЕТ НЕПРЕДВИДЕННО. НЕ ИСПОЛЬЗОВАТЬ!
+
 double** MatrTransp(double** arr, sizeofMatrix size)
 {
     sizeofMatrix size1 = { size.cols, size.rows };
@@ -87,8 +88,6 @@ double** MatrTransp(double** arr, sizeofMatrix size)
             neww[j][i] = arr[i][j];
         }
     }
-
-    //ArrDelete2D_double(neww, size1.rows);
 
     return neww;
 }
@@ -159,6 +158,61 @@ void MatrActionWithNum(double** arr, sizeofMatrix size, int act, double num)
     }
     default: { cout << "ОШИБКА С MatrActionWithNum! \nВыбрана неизвестная операция"; break; }
     }
+}
+
+double** MatrActionWithMatr(double** arr, sizeofMatrix size, int act, double** arr1, sizeofMatrix size1)
+{
+    switch (act)
+    {
+    case 1: 
+    {
+        double** rez = ArrCreate2D_double(size.rows, size.cols);
+        for (int i = 0; i < size.rows; i++)
+        {
+            for (int j = 0; j < size.cols; j++)
+            {
+                rez[i][j] = arr[i][j] + arr1[i][j];
+            }
+        }
+        return rez;
+    } break;
+    case 2: 
+    {
+        double** rez = ArrCreate2D_double(size.rows, size.cols);
+        for (int i = 0; i < size.rows; i++)
+        {
+            for (int j = 0; j < size.cols; j++)
+            {
+                rez[i][j] = arr[i][j] - arr1[i][j];
+            }
+        }
+        return rez;
+    } break;
+    case 3:
+    {
+        sizeofMatrix size2 = { size.rows, size1.cols };
+        double** rez = ArrCreate2D_double(size2.rows, size2.cols);
+        for (int i = 0; i < size.rows; i++)
+        {
+            for (int j = 0; j < size1.cols; j++)
+            {
+                double sum = 0;
+                for (int k = 0; k < size.cols; k++)
+                {
+                    sum += arr[i][k] * arr1[k][j];
+                }
+                rez[i][j] = sum;
+            }
+        }
+        return rez;
+    } break;
+    default: { cout << "ОШИБКА С MatrActionWithMatr! \nВыбрана неизвестная операция"; break; }
+    }
+}
+
+void MatrCenterOutput(string cont, int cols, int ed)
+{
+    cout << setw(cols * SETW + ed) << cont << "\n\n";
 }
 
 
