@@ -1,4 +1,5 @@
 #pragma once
+#include "MatrTools.h"
 
 
 int* ArrCreate1D_int(int size);
@@ -24,3 +25,5 @@ void ArrAddElement1D(int*& a, int& size, int elem);
 void ArrDelete2D_double(double** a, int m);
 
 int ArrCheckElemIn(int* a, int size, int elem);
+
+void ArrCopy2D_double(double** copy, double** orig, sizeofMatrix size);

@@ -2,6 +2,7 @@
 #include "iotools.h"
 #include <iostream>
 #include <iomanip>
+#include "MatrTools.h"
 using namespace std;
 
 
@@ -55,7 +56,7 @@ void ArrOutput2D_double(double** a, int rows, int cols)
     {
         for (int j = 0; j < cols; j++)
         {
-            cout << setw(3) << a[i][j] << " ";
+            cout << setprecision(3) << setw(7) << a[i][j] << " ";
         }
         cout << "\n\n";
     }
@@ -147,4 +148,15 @@ int ArrCheckElemIn(int* a, int size, int elem)
         if (a[i] == elem) return 1;
     }
     return 0;
+}
+// копирует массив orig в массив copy
+void ArrCopy2D_double(double** copy, double** orig, sizeofMatrix size)
+{
+    for (int i = 0; i < size.rows; i++)
+    {
+        for (int j = 0; j < size.cols; j++)
+        {
+            copy[i][j] = orig[i][j];
+        }
+    }
 }

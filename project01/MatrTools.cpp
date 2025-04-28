@@ -64,27 +64,7 @@ double MatrOprl(double** arr, int size)
         if (k % 2 == 0) e = 1;
         else e = -1;
 
-        double** rez = ArrCreate2D_double(size-1, size-1);
-
-        int i1 = 0, j1 = 0;
-
-        for (int i = 0; i < size; i++)
-        {
-            for (int j = 0; j < size; j++)
-            {
-                if (i != 0 && j != k)
-                {
-                    rez[i1][j1] = arr[i][j];
-
-                    j1 = j1 + 1;
-                    if (j1 == (size - 1)) // если j вывалилась за ширину новой матрицы то переходим на новую строку
-                    {
-                        j1 = 0;
-                        i1 += 1;
-                    }
-                }
-            }
-        }
+        double** rez = MatrMinor(arr, size, 0, k);
 
         opr += e * arr[0][k] * MatrOprl(rez, size-1);
 
@@ -92,6 +72,93 @@ double MatrOprl(double** arr, int size)
     }
 
     return opr;
+}
+// РАБОТАЕТ НЕПРЕДВИДЕННО. НЕ ИСПОЛЬЗОВАТЬ!
+double** MatrTransp(double** arr, sizeofMatrix size)
+{
+    sizeofMatrix size1 = { size.cols, size.rows };
+
+    double** neww = ArrCreate2D_double(size1.rows, size1.cols);
+
+    for (int i = 0; i < size.rows; i++)
+    {
+        for (int j = 0; j < size.cols; j++)
+        {
+            neww[j][i] = arr[i][j];
+        }
+    }
+
+    //ArrDelete2D_double(neww, size1.rows);
+
+    return neww;
+}
+
+double** MatrMinor(double **arr, int size, int ind1, int ind2)
+{
+    double** rz = ArrCreate2D_double(size - 1, size - 1);
+
+    int i1 = 0, j1 = 0;
+
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            if (i != ind1 && j != ind2)
+            {
+                rz[i1][j1] = arr[i][j];
+
+                j1 = j1 + 1;
+                if (j1 == (size - 1)) // если j вывалилась за ширину новой матрицы то переходим на новую строку
+                {
+                    j1 = 0;
+                    i1 += 1;
+                }
+            }
+        }
+    }
+
+    return rz;
+}
+
+void MatrActionWithNum(double** arr, sizeofMatrix size, int act, double num)
+{
+    switch (act)
+    {
+    case 1:
+    {
+        for (int i = 0; i < size.rows; i++)
+        {
+            for (int j = 0; j < size.cols; j++)
+            {
+                arr[i][j] = arr[i][j] + num;
+            }
+        }
+        break;
+    }
+    case 2:
+    {
+        for (int i = 0; i < size.rows; i++)
+        {
+            for (int j = 0; j < size.cols; j++)
+            {
+                arr[i][j] = arr[i][j] - num;
+            }
+        }
+        break;
+    }
+    case 3:
+    {
+        for (int i = 0; i < size.rows; i++)
+        {
+            for (int j = 0; j < size.cols; j++)
+            {
+                arr[i][j] = arr[i][j] * num;
+            }
+        }
+        break;
+    }
+    default: { cout << "ОШИБКА С MatrActionWithNum! \nВыбрана неизвестная операция"; break; }
+    }
 }
 
 
