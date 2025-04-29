@@ -219,6 +219,6 @@ void PolynimialCalculator(bool& isExecuting)
 	case 0: isExecuting = false; break;
 	}
 
-	cout << endl;
+	cout << "\n\n";
 	CycleRequest(isExecuting);
 }

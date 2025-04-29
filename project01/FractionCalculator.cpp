@@ -62,7 +62,7 @@ void FractionCalculator(bool& isexecuting)
             system("pause");
             eraseline(2);
         }
-        if (choice == 0) isexecuting = false; break;
+        if (choice == 0) { isexecuting = false; break; }
         Fraction a = input_fraction("\nВведите первую дробь (числитель знаменатель): ");
         Fraction b = input_fraction("Введите вторую дробь (числитель знаменатель): ");
         Fraction result;

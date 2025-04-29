@@ -48,7 +48,7 @@ void StatisticsCalculator(bool& isexecuting) {
             WAIT;
             continue;
         }
-        if (choice == 0) isexecuting = false; break;
+        if (choice == 0) { isexecuting = false; break; }
         clearScreen();
         switch (choice) {
         case 1: {
@@ -202,6 +202,7 @@ void StatisticsCalculator(bool& isexecuting) {
         }
         }
     }
+    cout << endl;
     CycleRequest(isexecuting);
     clearScreen();
 }
