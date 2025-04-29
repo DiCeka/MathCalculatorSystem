@@ -20,7 +20,7 @@ void FunctionsCalculator(bool& isexecuting)
 	cout << "Перечень допустимых функций: \n\n";
 
 	for (int i = 0; i < 7; i++) cout << TITLES[i];
-
+	//selection_func = iotools_Int_Input("sf", "sd", 3);
 	selection_func = iotools_Int_InputInOutRange("Введите номер нужной функции (0-6): ", "Ошибка!", 0, 6, 3);
 	
 	if (selection_func == 0) isexecuting = false;

@@ -13,11 +13,12 @@ void CycleRequest(bool& isexecuting, string question) {
     }
 }
 
-void CinQualification() {
-    if (std::cin.fail()) {//если cin не удался
-        std::cin.clear(); //очистим ввод
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); //проигнорируем все введённое 
-    }
+void CinQualification(bool &flag) {
+    if (cin.fail()) {//если cin не удался
+        flag = false;
+        cin.clear(); //очистим ввод
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //проигнорируем все введённое 
+    } else flag = true;
 }
 
 double iotools_Double_Input(string UserHint, string FailHint, int linesToClear)
@@ -32,7 +33,7 @@ double iotools_Double_Input(string UserHint, string FailHint, int linesToClear)
         if (cin.fail()) {
             isinvalid = true;
             cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << FailHint << "\n";
             system("pause");
             eraseline(linesToClear);
@@ -53,7 +54,7 @@ int iotools_Int_Input(string UserHint, string FailHint, int linesToClear)
         if (cin.fail()) {
             isinvalid = true;
             cin.clear();
-            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << FailHint << "\n";
             system("pause");
             eraseline(linesToClear);
@@ -62,92 +63,95 @@ int iotools_Int_Input(string UserHint, string FailHint, int linesToClear)
     return container;
 }
 
-int iotools_Int_InputInOutRange(std::string UserHint, std::string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange) {
+int iotools_Int_InputInOutRange(string UserHint, string FailHint, int startRange, int EndRange, int linesToClear, bool flipRange) {
+    bool fl = false;
     int container; //записываем сюда все введеное пользователем
     if (!flipRange) { //проверка на ввод В диапазоне
         do { //обрабатываем процесс ввода
-            std::cout << UserHint; //выведем на экран сообщение, что надо ввести
-            std::cin >> container; //запишем ввод
-            CinQualification(); //проведём проверку на ошибочность данных, чтобы программа не сломалась
-            if (container < startRange || container > EndRange) { //если введённое значение будет вне диапазона...
-                std::cout << FailHint << std::endl; //...выведем ошибку
+            cout << UserHint; //выведем на экран сообщение, что надо ввести
+            cin >> container; //запишем ввод
+            CinQualification(fl); //проведём проверку на ошибочность данных, чтобы программа не сломалась
+            if (container < startRange || container > EndRange || !fl) { //если введённое значение будет вне диапазона...
+                cout << FailHint << endl; //...выведем ошибку
                 system("pause"); //остановим консоль
                 eraseline(linesToClear); //удалим нужное количество строк
             }
-        } while (container < startRange || container > EndRange); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
+        } while (container < startRange || container > EndRange || !fl); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
     }
     else { //проверка на ввод ВНЕ диапазона
         do { //обрабатываем процесс ввода
-            std::cout << UserHint; //выведем на экран сообщение, что надо ввести
-            std::cin >> container; //запишем ввод
-            CinQualification(); //проведём проверку на ошибочность данных, чтобы программа не сломалась
-            if (container > startRange || container < EndRange) { //если введённое значение будет В диапазоне...
-                std::cout << FailHint << std::endl; //...выведем ошибку
+            cout << UserHint; //выведем на экран сообщение, что надо ввести
+            cin >> container; //запишем ввод
+            CinQualification(fl); //проведём проверку на ошибочность данных, чтобы программа не сломалась
+            if (container > startRange || container < EndRange || !fl) { //если введённое значение будет В диапазоне...
+                cout << FailHint << endl; //...выведем ошибку
                 system("pause"); //остановим консоль
                 eraseline(linesToClear); //удалим нужное количество строк
             }
-        } while (container > startRange || container < EndRange); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
+        } while (container > startRange || container < EndRange || !fl); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
     }
 
     return container; //вернём итоговое введённое значение
 }
 
 double iotools_Double_InputInOutRange(string UserHint, string FailHint, double startRange, double EndRange, int linesToClear, bool flipRange) {
+    bool fl = false;
     int container; //записываем сюда все введеное пользователем
     if (!flipRange) { //проверка на ввод В диапазоне
         do { //обрабатываем процесс ввода
-            std::cout << UserHint; //выведем на экран сообщение, что надо ввести
-            std::cin >> container; //запишем ввод
-            CinQualification(); //проведём проверку на ошибочность данных, чтобы программа не сломалась
-            if (container < startRange || container > EndRange) { //если введённое значение будет вне диапазона...
-                std::cout << FailHint << std::endl; //...выведем ошибку
+            cout << UserHint; //выведем на экран сообщение, что надо ввести
+            cin >> container; //запишем ввод
+            CinQualification(fl); //проведём проверку на ошибочность данных, чтобы программа не сломалась
+            if (container < startRange || container > EndRange || !fl ) { //если введённое значение будет вне диапазона...
+                cout << FailHint << endl; //...выведем ошибку
                 system("pause"); //остановим консоль
                 eraseline(linesToClear); //удалим нужное количество строк
             }
-        } while (container < startRange || container > EndRange); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
+        } while (container < startRange || container > EndRange || !fl ); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
     }
     else { //проверка на ввод ВНЕ диапазона
         do { //обрабатываем процесс ввода
-            std::cout << UserHint; //выведем на экран сообщение, что надо ввести
-            std::cin >> container; //запишем ввод
-            CinQualification(); //проведём проверку на ошибочность данных, чтобы программа не сломалась
-            if (container > startRange || container < EndRange) { //если введённое значение будет В диапазоне...
-                std::cout << FailHint << std::endl; //...выведем ошибку
+            cout << UserHint; //выведем на экран сообщение, что надо ввести
+            cin >> container; //запишем ввод
+            CinQualification(fl); //проведём проверку на ошибочность данных, чтобы программа не сломалась
+            if (container > startRange || container < EndRange || !fl) { //если введённое значение будет В диапазоне...
+                cout << FailHint << endl; //...выведем ошибку
                 system("pause"); //остановим консоль
                 eraseline(linesToClear); //удалим нужное количество строк
             }
-        } while (container > startRange || container < EndRange); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
+        } while (container > startRange || container < EndRange || !fl); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
     }
 
     return container; //вернём итоговое введённое значение
 }
 
-int iotools_Int_InputMoreLessThanValue(std::string UserHint, std::string FailHint, int CompareValue, int linesToClear, bool flipQualitification) {
+int iotools_Int_InputMoreLessThanValue(string UserHint, string FailHint, int CompareValue, int linesToClear, bool flipQualitification) {
+    bool fl = false;
     int container; //записываем сюда все введеное пользователем
     if (!flipQualitification) {//ОБРАБОТКА flipQialification = false, то есть чтоб ввод был БОЛЬШЕ заданного числа
         do { //обрабатываем процесс ввода
-            std::cout << UserHint; //выведем на экран сообщение, что надо ввести
-            std::cin >> container; //запишем ввод
-            CinQualification(); //проведём проверку на ошибочность данных, чтобы программа не сломалась
-            if (container < CompareValue) { //если введённое значение будет меньше нужного числа...
-                std::cout << FailHint << std::endl; //...выведем ошибку
+            cout << UserHint; //выведем на экран сообщение, что надо ввести
+            cin >> container; //запишем ввод
+            CinQualification(fl); //проведём проверку на ошибочность данных, чтобы программа не сломалась
+            if (container < CompareValue || !fl) { //если введённое значение будет меньше нужного числа...
+                cout << FailHint << endl; //...выведем ошибку
                 system("pause"); //остановим консоль
                 eraseline(linesToClear); //удалим нужное количество строк
             }
-        } while (container < CompareValue); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
+        } while (container < CompareValue || !fl); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
 
     }
     else { //ОБРАБОТКА flipQialification = true, то есть чтоб ввод был МЕНЬШЕ заданного числа
         do { //обрабатываем процесс ввода
-            std::cout << UserHint; //выведем на экран сообщение, что надо ввести
-            std::cin >> container; //запишем ввод
-            CinQualification(); //проведём проверку на ошибочность данных, чтобы программа не сломалась
-            if (container > CompareValue) { //если введённое значение будет больше числа...
-                std::cout << FailHint << std::endl; //...выведем ошибку
+            cout << UserHint; //выведем на экран сообщение, что надо ввести
+            cin >> container; //запишем ввод
+            CinQualification(fl); //проведём проверку на ошибочность данных, чтобы программа не сломалась
+            if (container > CompareValue || !fl) { //если введённое значение будет больше числа...
+                cout << FailHint << endl; //...выведем ошибку
                 system("pause"); //остановим консоль
                 eraseline(linesToClear); //удалим нужное количество строк
             }
-        } while (container > CompareValue); //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
+        } while (container > CompareValue || !fl) ; //запрос вввода будет до тех пор, пока не введётся верное (все тесты пройдут успешно)
 
     }
     return container; //вернём итоговое введённое значение
