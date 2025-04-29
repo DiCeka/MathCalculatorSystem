@@ -74,7 +74,7 @@ void StatisticsCalculator(bool& isexecuting) {
                 clearScreen();
                 cout << "Введите общее число исходов (n): ";
             }
-            double p = static_cast<double>(m) / n;
+            double p = double(m) / n;
             show_result("Вероятность: " + to_string(m) + "/" + to_string(n) + " = " + to_string(p));
             break;
         }
@@ -121,7 +121,7 @@ void StatisticsCalculator(bool& isexecuting) {
                 }
                 sum += probs[i];
             }
-            if (fabs(sum - 1.0) > 1e-6) {
+            if (fabs(sum - 1.0)) {
                 cout << "Ошибка! Сумма вероятностей должна быть равна 1.0. Нажмите любую клавишу...";
                 delete[] values;
                 delete[] probs;
@@ -138,11 +138,70 @@ void StatisticsCalculator(bool& isexecuting) {
             break;
         }
         case 3: {
+            int size;
+            cout << "Введите количество значений: ";
+            while (!(cin >> size) || size <= 0) {
+                clearInputBuffer();
+                if (size <= 0) {
+                    cout << "Ошибка! Число должно быть > 0. Нажмите любую клавишу...";
+                }
+                else {
+                    cout << "Ошибка! Введите целое число. Нажмите любую клавишу...";
+                }
+                WAIT;
+                clearScreen();
+                cout << "Введите количество значений: ";
+            }
+            double* values = new double[size];
+            double* probs = new double[size];
+            double sum = 0;
+            for (int i = 0; i < size; i++) {
+                clearScreen();
+                cout << "Значение " << i + 1 << ": ";
+                while (!(cin >> values[i])) {
+                    clearInputBuffer();
+                    cout << "Ошибка! Введите число. Нажмите любую клавишу...";
+                    WAIT;
+                    clearScreen();
+                    cout << "Значение " << i + 1 << ": ";
+                }
+                cout << "Вероятность " << i + 1 << ": ";
+                while (!(cin >> probs[i]) || probs[i] < 0) {
+                    clearInputBuffer();
+                    if (probs[i] < 0) {
+                        cout << "Ошибка! Вероятность должна быть ≥ 0. Нажмите любую клавишу...";
+                    }
+                    else {
+                        cout << "Ошибка! Введите число. Нажмите любую клавишу...";
+                    }
+                    WAIT;
+                    clearScreen();
+                    cout << "Вероятность " << i + 1 << ": ";
+                }
+                sum += probs[i];
+            }
+            if (fabs(sum - 1.0)) {
+                cout << "Ошибка! Сумма вероятностей должна быть равна 1.0. Нажмите любую клавишу...";
+                delete[] values;
+                delete[] probs;
+                WAIT;
+                break;
+            }
+            double expectation = 0;
+            for (int i = 0; i < size; i++) {
+                expectation += values[i] * probs[i];
+            }
+            double variance = 0;
+            for (int i = 0; i < size; i++) {
+                variance += probs[i] * pow(values[i] - expectation, 2);
+            }
+            show_result("Дисперсия: " + to_string(variance));
+            delete[] values;
+            delete[] probs;
             break;
         }
         }
     }
-
     CycleRequest(isexecuting);
     clearScreen();
 }
