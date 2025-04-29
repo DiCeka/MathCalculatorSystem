@@ -10,11 +10,11 @@ string power_title = "2 - Степенная функция\n  a * x^b + c;\n\n"
 string exponental_title = "3 - Показательная функция\n  a * b^(c*x)+d;\n\n";
 string logariphmic_title = "4 - Логарифмическая функция\n  a * Ln(b*x) + c\n\n";
 string sin_title = "5 - Синусоида\n  a*sin(b*x + c) + d;\n\n";
-string cos_title = "6 - Косинусоида\n  a*cos(b*x + c) + d;\n\n\n\n";
+string cos_title = "6 - Косинусоида\n  a*cos(b*x + c) + d;\n\n";
+string exit_title = "0 - Выход в главное меню\n\n\n\n";
 
-
-string TITLES[6] = { polynomial_title, power_title, exponental_title,
-		logariphmic_title, sin_title, cos_title };
+string TITLES[7] = { polynomial_title, power_title, exponental_title,
+		logariphmic_title, sin_title, cos_title, exit_title };
 
 int* POLYNOMUS_PARAMS_FILLMENT() {
 	int* p = new int[parameters[4]];

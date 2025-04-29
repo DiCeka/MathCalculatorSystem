@@ -8,6 +8,7 @@ extern string exponental_title;
 extern string logariphmic_title;
 extern string sin_title;
 extern string cos_title;
+extern string exit_title;
 int vars_containing_data[6][VARS_AMOUNT] = {
 	{0,0,0,0,1},
 	{1,1,1,0,0},
