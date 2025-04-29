@@ -5,10 +5,12 @@
 using namespace std;
 
 void CycleRequest(bool& isexecuting, string question) {
-
-    cout << question << "\n1-ДА\n2-НЕТ\n";
-    int selection = iotools_Int_InputInOutRange("", "Такого выбора нет!", 1, 2, 3);
-    if (selection == true) { isexecuting = false; system("cls"); }
+    if (isexecuting)
+    {
+        cout << question << "\n1-ДА\n2-НЕТ\n";
+        int selection = iotools_Int_InputInOutRange("", "Такого выбора нет!", 1, 2, 3);
+        if (selection == true) { isexecuting = false; system("cls"); }
+    }
 }
 
 void CinQualification() {

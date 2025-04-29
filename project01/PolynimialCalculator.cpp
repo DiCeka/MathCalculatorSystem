@@ -10,8 +10,9 @@ using namespace std;
 
 void PolynimialCalculator(bool& isExecuting)
 {
+	system("cls");
 	int selecter = iotools_Int_InputInOutRange("Выберете действие с многочленом:\n\t 1 - Сложение многочленов\n\t 2 - Вычитание многочленов\n\t 3 - Умножение многочленов\n\t 4 - Умножение многочлена на число\n\t \
-5 - Вычисление производной от многочлена\n\t 6 - Деление многочлена в столбик\n", "ERROR: Такого действия нет!", 1, 6, 10);
+5 - Вычисление производной от многочлена\n\t 6 - Деление многочлена в столбик\n\t 0 - Выход в главное меню\n", "ERROR: Такого действия нет!", 0, 6, 10);
 
 	switch (selecter)
 	{
@@ -215,6 +216,7 @@ void PolynimialCalculator(bool& isExecuting)
 		free(remainder);
 	}; break;
 
+	case 0: isExecuting = false; break;
 	}
 
 	cout << endl;

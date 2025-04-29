@@ -20,9 +20,9 @@ void show_menu() {
     cout << "* 2. Вычитание            *\n";
     cout << "* 3. Умножение            *\n";
     cout << "* 4. Деление              *\n";
-    cout << "* 5. Выход                *\n";
+    cout << "* 0. Выход                *\n";
     cout << "**************************\n";
-    cout << "Выберите операцию (1-5): \n";
+    cout << "Выберите операцию (0-4): \n";
 }
 void clearScreen() {
     system(CLEAR);
@@ -56,13 +56,13 @@ void FractionCalculator(bool& isexecuting)
     int choice;
     while (true) {
         show_menu();
-        while (!(cin >> choice) || choice < 1 || choice > 5) {
-            cout << "Некорректный ввод. Введите число от 1 до 5: ";
+        while (!(cin >> choice) || choice < 0 || choice > 4) {
+            cout << "Некорректный ввод. Введите число от 0 до 4: ";
             clearInputBuffer();
             system("pause");
             eraseline(2);
         }
-        if (choice == 5) break;
+        if (choice == 0) isexecuting = false; break;
         Fraction a = input_fraction("\nВведите первую дробь (числитель знаменатель): ");
         Fraction b = input_fraction("Введите вторую дробь (числитель знаменатель): ");
         Fraction result;

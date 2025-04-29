@@ -26,9 +26,9 @@ void show_probability_menu() {
     cout << "* 1. Вероятность события     *\n";
     cout << "* 2. Математическое ожидание *\n";
     cout << "* 3. Дисперсия               *\n";
-    cout << "* 4. Выход в меню            *\n";
+    cout << "* 0. Выход в меню            *\n";
     cout << "*******************************\n";
-    cout << "Выберите операцию (1-4): ";
+    cout << "Выберите операцию (0-3): ";
 }
 void show_result(const string& result) {
     cout << "\nРезультат: " << result << "\n";
@@ -42,13 +42,13 @@ void StatisticsCalculator(bool& isexecuting) {
         show_probability_menu();
         int choice;
         cin >> choice;
-        if (cin.fail() || choice < 1 || choice > 4) {
+        if (cin.fail() || choice < 0 || choice > 3) {
             clearInputBuffer();
             cout << "Ошибка! Введите число от 1 до 4. Нажмите любую клавишу...";
             WAIT;
             continue;
         }
-        if (choice == 4) break;
+        if (choice == 0) isexecuting = false; break;
         clearScreen();
         switch (choice) {
         case 1: {

@@ -1,13 +1,36 @@
-#pragma once
+п»ї#pragma once
+#include "ComboCalc.h"
 #include "Calculators.h"
 #include "iotools.h"
+#include <iostream>
+using namespace std;
+
 void CombinationCalculator(bool& isexecuting)
 {
-	system("cls");//чистим консоль при каждой итерации калькулятора (для красоты и стиля)
+	system("cls");
+	cout << "РљРђР›Р¬РљРЈР›РЇРўРћР  Р¤РћР Рњ РљРћРњР‘РРќРђРўРћР РРљР\n\n";	
 
-	//главный код калькулятора
+	cout << "Р’С‹Р±РµСЂРёС‚Рµ Р¶РµР»Р°РµРјСѓСЋ С„СѓРЅРєС†РёСЋ:\n\n";
+	cout << " 1 - Р Р°Р·РјРµС‰РµРЅРёРµ СЃ РїРѕРІС‚РѕСЂРµРЅРёРµРј\n 2 - Р Р°Р·РјРµС‰РµРЅРёРµ Р±РµР· РїРѕРІС‚РѕСЂРµРЅРёР№\n \
+3 - РЎРѕС‡РµС‚Р°РЅРёРµ СЃ РїРѕРІС‚РѕСЂРµРЅРёРµРј\n 4 - РЎРѕС‡РµС‚Р°РЅРёРµ Р±РµР· РїРѕРІС‚РѕСЂРµРЅРёР№\n 5 - РџРµСЂРµСЃС‚Р°РЅРѕРІРєРё\n 0 - Р’С‹С…РѕРґ РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ\n";
 
+	int selecter = iotools_Int_InputInOutRange("", "РќРµРІРµСЂРЅС‹Р№ РІРІРѕРґ, РїРѕРїСЂРѕР±СѓР№С‚Рµ СЃРЅРѕРІР°", 0, 5, 3);
 
-//запрос выйти в меню или продолжить этот калькулятор
-	CycleRequest(isexecuting);
+	bool is_executing = true;
+
+	while (is_executing)
+	{
+		system("cls");
+		switch (selecter)
+		{
+		case 1: Razm(1, is_executing); break;
+		case 2: Razm(0, is_executing); break;
+		case 3: Soch(1, is_executing); break;
+		case 4: Soch(0, is_executing); break;
+		case 5: Perestanovki(is_executing); break;
+		case 0: is_executing = false; isexecuting = false; break;
+		}
+	}
+
+	CycleRequest(isexecuting, "Р’С‹Р№С‚Рё РІ РіР»Р°РІРЅРѕРµ РјРµРЅСЋ?");
 }
